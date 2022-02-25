@@ -1,0 +1,5 @@
+# aliasy
+
+# procesy
+alias pg="ps ax|grep"
+alias k="kill"
