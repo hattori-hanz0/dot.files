@@ -1,6 +1,17 @@
 # katalog tymczasowy
 export TEMPDIR="$HOME/tmp"
 # ID klucza prywatnego PGP używanego do szyfrowania
-export GPG_ID
+export GPG_ID=""
 # katalog ze skryptami shell
 export BIN="$HOME/.local/bin"
+# rodzaj terminala
+export TERM=xterm-256color
+# ustawienie ścieżki wyszukiwania programów
+export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.local/node_modules/.bin:$PATH"
+# ustawienie programu do wyświetlania stron podręcznika systemowego
+export MANPAGER="less -X"
+# ustawienie domyślnej przeglądarki
+export BROWSER="/usr/bin/firefox"
+# ustawienie edytora NeoVim jako standardowego edytora
+export VIMRUNTIME="/usr/share/nvim/runtime"
+export EDITOR="/usr/bin/nvim"
