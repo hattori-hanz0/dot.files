@@ -1,0 +1,14 @@
+# [character]
+# use_symbol_for_status = true
+# symbol = "➜"
+# style_success = "bold #00A652"
+# style_failure = "bold #df382c"
+
+# Disable the package module, hiding it from the prompt completely
+[package]
+disabled = true
+
+[directory]
+truncation_length = 5
+format = "[$path]($style)[$lock_symbol]($lock_style) "
+# prefix = " 📂️ "

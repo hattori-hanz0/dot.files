@@ -1,0 +1,4 @@
+super+t
+    i3run --title fterm -- alacritty --title fterm
+super+shift+t
+    i3run --title fhtop -- alacritty --title fhtop -e htop

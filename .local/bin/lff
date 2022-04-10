@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+tmux -S ~/temp/tmux.sock -f ~/.tmux-lff.conf new-session -s lff \; send-keys 'lf -config ~/.config/lf/mc-lfrc' C-m \; split-window -h \; send-keys 'lf -config ~/.config/lf/mc-lfrc' C-m \;

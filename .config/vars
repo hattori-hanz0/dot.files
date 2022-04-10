@@ -8,10 +8,18 @@ export BIN="$HOME/.local/bin"
 export TERM=xterm-256color
 # ustawienie ścieżki wyszukiwania programów
 export PATH="$HOME/.local/bin:$HOME/bin:$HOME/.local/node_modules/.bin:$PATH"
-# ustawienie programu do wyświetlania stron podręcznika systemowego
+# ustawienie programu do wyświetlania stron podręcznika systemowego, '-X' nie czyści ekranu po wyjściu z man
 export MANPAGER="less -X"
 # ustawienie domyślnej przeglądarki
 export BROWSER="/usr/bin/firefox"
 # ustawienie edytora NeoVim jako standardowego edytora
 export VIMRUNTIME="/usr/share/nvim/runtime"
 export EDITOR="/usr/bin/nvim"
+# program sudo / doas
+export SUDO=/usr/sbin/sudo
+export DOTFILES_DIR="$HOME/git/dot.files"
+# export LS_COLORS="di=1;36:ln=1;31:so=37:pi=1;35:ex=37:bd=37:cd=37:su=37:sg=37:tw=1;36:ow=1;36"
+export BIN="$HOME/.local/bin"
+export NOTES_DIR="$HOME/Notes"
+export GOPATH=${HOME}/go
+export TERM=xterm-256color

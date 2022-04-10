@@ -1,0 +1,12 @@
+.config/alacritty
+.config/aliases
+.config/bmdirs
+.config/i3
+.config/vars
+.config/mc/ini
+.config/starship.toml
+.config/rofi
+.local/bin
+.bashrc
+.tmux.conf
+.tmux-lff.conf

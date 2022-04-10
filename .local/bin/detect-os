@@ -1,0 +1,105 @@
+#!/usr/bin/env bash
+
+# Skrypt wykrywa następujące systemy:
+#
+#   - Fedora,  CentOS, Ubuntu, Arch, Void, PopOS
+#
+# Parametry:
+#
+# detect-os sys zwraca nazwę systemu np. Fedora
+# detect-os sys-full zwraca pełną nazwę systemu np. Fedora release 33 (Thirty Three)
+# detect-os ver zwraca numer wydania systemu np. 33
+# detect-os kernel zwraca wersję kernela np. Linux fredka.lan 5.11.9-200.fc33.x86_64
+
+shopt -s nocasematch
+
+kernel=$(uname -srn)
+
+# Wykrywanie systemu Fedora
+if [ -f /etc/fedora-release ]; then
+    read -r fedora < /etc/fedora-release
+    fedora_ver=$(echo "$fedora" | tr -cd '[:digit:][:cntrl:]')
+    system="Fedora"
+    system_full=$fedora
+    system_ver=$fedora_ver
+fi
+
+# Wykrywanie systemu CentOS
+if [ -f /etc/centos-release ]; then
+    read -r centos < /etc/centos-release
+    grep . /etc/centos-release > /dev/null
+    if [ $? -eq 0 ]; then
+        centos_ver=$(echo "$centos" | cut -d. -f1 | tr -cd '[:digit:][:cntrl:]')
+    else
+        centos_ver=$(echo "$centos" | tr -cd '[:digit:][:cntrl:]')
+    fi
+    system="CentOS"
+    system_full=$centos
+    system_ver=$centos_ver
+fi
+
+# Wykruwanie systemu Ubuntu
+if [ -f /etc/lsb-release ]; then
+    source /etc/lsb-release
+    ubuntu=$DISTRIB_ID
+    ubuntu_ver=$DISTRIB_RELEASE
+    system="Ubuntu"
+    system_full=$ubuntu
+    system_ver=$ubuntu_ver
+fi
+
+# Wykrywanie systemu Arch
+if [ -f /etc/os-release ]; then
+    source /etc/os-release
+    if [ $ID == "arch" ]; then
+        system="Arch"
+        system_full="$NAME"
+        system_ver="$BUILD_ID"
+    fi
+fi
+
+# Wykrywanie systemu Void
+if [ -f /etc/os-release ]; then
+    source /etc/os-release
+    if [ $ID == "void" ]; then
+        system="Void"
+        system_full="$NAME $(uname -a)"
+        system_ver="Void $kernel"
+    fi
+fi
+
+# Wykrywanei systemu Pop OS
+if [ -f /etc/pop-os/os-release ]; then
+    source /etc/pop-os/os-release
+    system="$NAME"
+    system_full="$PRETTY_NAME"
+    system_ver="$VERSION"
+fi
+
+case $1 in
+    sys)
+        echo $system
+        ;;
+    sys-full)
+        echo $system_full
+        ;;
+    ver)
+        echo $system_ver
+        ;;
+    kernel)
+        echo $kernel
+        ;;
+    *)
+        echo
+        echo "############################## POMOC #################################"
+        echo
+        echo Dostępne parametry:
+        echo
+        echo "$(basename $0) sys      - wyświetla nazwę dystrybucji"
+        echo "$(basename $0) sys-full - wyśweitla nazwę dystrybucji i wersję systemu"
+        echo "$(basename $0) ver      - wyświetla wersję systemu"
+        echo "$(basename $0) kernel   - wyświetla wersję kernela"
+        echo
+        echo "######################################################################"
+        echo
+esac

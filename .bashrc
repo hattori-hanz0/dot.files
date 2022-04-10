@@ -1,5 +1,8 @@
 # .bashrc
 
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
 # wczytanie standardowej konfiguracji BASH
 [ -f "/etc/bashrc" ] && . "/etc/bashrc"
 
@@ -7,7 +10,10 @@
 [ -f "$HOME/.config/vars" ] && . "$HOME/.config/vars"
 
 # wczytanie aliasów z pliku ~/.config/aliases
-[ -f "$HOME/.config/aliases" ] && source "$HOME/.config/aliases"
+[ -f "$HOME/.config/aliases" ] && . "$HOME/.config/aliases"
+
+export PATH=$PATH:~/.local/bin
+export LC_ALL=pl_PL.UTF-8
 
 # wyłączenie ctrl-s i ctrl-q
 stty -ctlecho
