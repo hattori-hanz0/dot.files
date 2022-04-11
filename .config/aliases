@@ -24,8 +24,8 @@ alias gp="$HOME/.local/bin/gp.sh"
 alias gps="$HOME/.local/bin/gps.sh"
 alias gs="$HOME/.local/bin/gs.sh"
 alias gl="$HOME/.local/bin/gl.sh"
-alias pu="$HOME/.local/bin/pu"
-alias push="$HOME/.local/bin/push"
+alias pu="$HOME/.local/bin/pu.sh"
+alias push="$HOME/.local/bin/push.sh"
 
 # Pliki konfiguracyjne
 alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
