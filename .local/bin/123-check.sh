@@ -33,7 +33,7 @@ function check() {
     fi
 }
 
-declare -a PAKIETY_FEDORA=(
+declare -a KOMENDY_FEDORA=(
     "nvim"
     "git"
     "rg"
@@ -43,7 +43,7 @@ declare -a PAKIETY_FEDORA=(
     "xclip"
 )
 
-declare -a PAKIETY_UBUNTU=(
+declare -a KOMENDY_UBUNTU=(
     "nvim"
     "git"
     "rg"
@@ -53,7 +53,7 @@ declare -a PAKIETY_UBUNTU=(
     "xclip"
 )
 
-declare -a PAKIETY_ARCH=(
+declare -a KOMENDY_ARCH=(
     "nvim"
     "git"
     "rg"
@@ -63,7 +63,7 @@ declare -a PAKIETY_ARCH=(
     "xclip"
 )
 
-declare -a PAKIETY_VOID=(
+declare -a KOMENDY_VOID=(
     "nvim"
     "git"
     "rg"
@@ -78,7 +78,7 @@ declare -a PAKIETY_VOID=(
 )
 
 if [[ $FEDORA ]]; then
-    for i in ${PAKIETY_FEDORA[@]}; do
+    for i in ${KOMENDY_FEDORA[@]}; do
         check "$i"
     done
 
@@ -90,7 +90,7 @@ if [[ $FEDORA ]]; then
 fi
 
 if [[ $UBUNTU ]]; then
-    for i in ${PAKIETY_UBUNTU[@]}; do
+    for i in ${KOMENDY_UBUNTU[@]}; do
         check "$i"
     done
 
@@ -101,7 +101,7 @@ if [[ $UBUNTU ]]; then
 fi
 
 if [[ $ARCH ]]; then
-    for i in ${PAKIETY_ARCH[@]}; do
+    for i in ${KOMENDY_ARCH[@]}; do
         check "$i"
     done
 
@@ -112,7 +112,7 @@ if [[ $ARCH ]]; then
 fi
 
 if [[ $VOID ]]; then
-    for i in ${PAKIETY_VOID[@]}; do
+    for i in ${KOMENDY_VOID[@]}; do
         check "$i"
     done
 

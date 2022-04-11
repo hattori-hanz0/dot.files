@@ -43,6 +43,10 @@ declare -a LISTA_KOMEND=(
     "zathura"
 )
 
+declare LISTA_PAKIETOW
+
+xbps-query -l | cut -f 2 -d ' '| xargs -n1 xbps-query -p pkgname | xargs -n1 LISTA_PAKIETOW+={} ; \
+
 declare BRAK
 declare ZNALAZLEM
 
@@ -52,10 +56,10 @@ function komendy() {
         command -v ${LISTA_KOMEND[$i]} >/dev/null 2>&1
         if [[ ! $? -eq 0 ]]; then
             # msg_error "Brak komendy ${LISTA_KOMEND[$i]}"
-            BRAK+=("${LISTA_KOMEND[$i]} ")
+            BRAK+=("${LISTA_KOMEND[$i]}")
         else
             # msg_info "Znalazłem komendę ${LISTA_KOMEND[$i]}"
-            ZNALAZLEM+=("${LISTA_KOMEND[$i]} ")
+            ZNALAZLEM+=("${LISTA_KOMEND[$i]}")
         fi
     done
 }
@@ -69,3 +73,5 @@ done
 for ((i = 0; i < ${#BRAK[@]}; i++)); do
     msg_error "Brak komendy ${BRAK[$i]}"
 done
+
+echo "Instalacja: ${BRAK[@]}"
