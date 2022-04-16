@@ -54,6 +54,7 @@ declare -a WYMAGANE_PAKIETY=(
     "lf"
     "lowdown"
     "maim"
+    "maim"
     "mc"
     "neovim" # nvim
     "nerd-fonts"
@@ -76,6 +77,7 @@ declare -a WYMAGANE_PAKIETY=(
     "sddm"
     "sddm"
     "skim"
+    "slop"
     "starship"
     "sxhkd"
     "tmux"

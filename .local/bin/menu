@@ -1,0 +1,196 @@
+#!/usr/bin/env bash
+
+. ~/.config/vars
+
+declare -a menu_list=(
+    "Suspend"
+    "Reboot"
+    "Monitor Off"
+    "Books"
+    "Wyczyść hasło do agenta GPG"
+    "Pass ROFI"
+    "Wyczyść historię schowka"
+    "CPU GHz"
+    "Stan baterii"
+    "SS ScreenShot"
+    "Wł/Wył touchpad"
+    "Edit Menu"
+)
+
+    # "bspwm reload"
+    # "sxhkd restart"
+    # "Polybar toggle"
+    # "Polybar restart"
+
+menu=$(printf '%s\n' "${menu_list[@]}" | rofi -lines 28 -dmenu -i -p "Wybierz coś" "${@}")
+
+[ "$menu" == "Suspend" ] && sudo zzz
+
+[ "$menu" == "Reboot" ] && sudo reboot
+
+screenshot() {
+    declare -a screenshot_list=(
+        "SS Full Screen"
+        "SS Area & Copy to Clipboard"
+        "SS Active Window"
+        "SS Selected Area"
+        "SS Active Window & Send to 0x0.st"
+        "SS Full Screen & Send to 0x0.st"
+        "SS Selected Area & Send to 0x0.st"
+    )
+
+    screenshot=$(printf '%s\n' "${screenshot_list[@]}" | rofi -lines 7 -dmenu -i -p "Wybierz coś" "${@}")
+
+    if [ "$screenshot" == "SS Area & Copy to Clipboard" ]; then
+        maim -s | xclip -selection clipboard -t image/png
+    fi
+
+    if [ "$screenshot" == "SS Full Screen" ]; then
+        NUMER=$RANDOM
+        maim ~/Pictures/SS/$(date +%F)-$NUMER.jpg
+        notify-send "SS został zapisany w pliku ~/Pictures/SS/$(date +%F)-$NUMER.jpg"
+    fi
+
+    if [ "$screenshot" == "SS Active Window" ]; then
+        NUMER=$RANDOM
+        maim -i $(xdotool getactivewindow) ~/Pictures/SS/$(date +%F)-$NUMER.jpg
+        notify-send "SS został zapisany w pliku ~/Pictures/SS/$(date +%F)-$NUMER.jpg"
+    fi
+
+    if [ "$screenshot" == "SS Selected Area" ]; then
+        NUMER=$RANDOM
+        maim -s ~/Pictures/SS/$(date +%F)-$NUMER.jpg
+        notify-send "SS został zapisany w pliku ~/Pictures/SS/$(date +%F)-$NUMER.jpg"
+    fi
+
+    if [ "$screenshot" == "SS Active Window & Send to 0x0.st" ]; then
+        NUMER=$RANDOM
+        maim -i $(xdotool getactivewindow) ~/tmp/$NUMER.jpg
+        curl -F"file=@$HOME/tmp/$NUMER.jpg" https://0x0.st | tr -d '\n' | xclip -selection clipboard
+        notify-send "SS został wysłany $(xclip -o)"
+        rm $HOME/tmp/$NUMER.jpg
+    fi
+
+    if [ "$screenshot" == "SS Full Screen & Send to 0x0.st" ]; then
+        NUMER=$RANDOM
+        maim ~/tmp/$NUMER.jpg
+        curl -F"file=@$HOME/tmp/$NUMER.jpg" https://0x0.st | tr -d '\n' | xclip -selection clipboard
+        notify-send "SS został wysłany $(xclip -o)"
+        rm $HOME/tmp/$NUMER.jpg
+    fi
+
+    if [ "$screenshot" == "SS Selected Area & Send to 0x0.st" ]; then
+        NUMER=$RANDOM
+        maim -s ~/tmp/$NUMER.jpg
+        curl -F"file=@$HOME/tmp/$NUMER.jpg" https://0x0.st | tr -d '\n' | xclip -selection clipboard
+        notify-send "SS został wysłany $(xclip -o)"
+        rm $HOME/tmp/$NUMER.jpg
+    fi
+}
+
+if [ "$menu" == "SS ScreenShot" ]; then
+    screenshot
+fi
+
+if [ "$menu" == "Stan baterii" ]; then
+    batt=$(upower -i $(upower -e | grep BAT) | grep --color=never -E "state|to\ full|to\ empty|percentage")
+    rofi -e "$batt"
+fi
+
+if [ "$menu" == "Monitor Off" ]; then
+    notify-send "Za kilka chwil wyłączę monitor..."
+    sleep 1
+    xset dpms force off
+fi
+
+if [ "$menu" == "sxhkd restart" ]; then
+    pkill -USR1 -x sxhkd
+    if [ $? == 0 ]; then
+        rofi -e "Ustawienia sxhkd zostały przeładowane"
+    fi
+fi
+
+[ "$menu" == "Wyczyść hasło do agenta GPG" ] && gpg-connect-agent reloadagent /bye
+
+[ "$menu" == "Wyczyść historię schowka" ] && $HOME/bin/clipdel -d ".*"
+
+[ "$menu" == "Pass ROFI" ] && $HOME/bin/passr
+
+[ "$menu" == "Books" ] && $HOME/bin/books
+
+check_cpu_exit_status() {
+    if [ $? == 0 ]; then
+        notify-send "Ustawiłem maksymalną częstotliwość na $1"
+    else
+        rofi -e "Ustawienie częstotliwości ($1) NIE powiodło się (zmień ustawienia sudo)."
+    fi
+}
+
+cpu() {
+    declare -a cpu_hz=(
+        "Max 400"
+        "Max 800"
+        "Max 1.4"
+        "Max 1.8"
+        "Max 2.4"
+        "Max 3.3"
+        "Max 4.0"
+    )
+
+    GHZ=$(cpupower frequency-info -f -m|tail -n 1|cut -f 6,7 -d ' ')
+
+    cpu=$(printf '%s\n' "${cpu_hz[@]}" | rofi -dmenu -i -p "Ustaw częstotliwość (teraz: $GHZ)" "${@}")
+
+    if [ "$cpu" == "Max 400" ]; then
+        /usr/bin/sudo cpupower frequency-set -u 400000 -g powersave
+        check_cpu_exit_status "0.4 GHz"
+    fi
+
+    if [ "$cpu" == "Max 800" ]; then
+        /usr/bin/sudo cpupower frequency-set -u 800000 -g powersave
+        check_cpu_exit_status "0.8 GHz"
+    fi
+
+    if [ "$cpu" == "Max 1.4" ]; then
+        /usr/bin/sudo cpupower frequency-set -u 1400000 -g powersave
+        check_cpu_exit_status "1.4 GHz"
+    fi
+
+    if [ "$cpu" == "Max 1.8" ]; then
+        /usr/bin/sudo cpupower frequency-set -u 1800000 -g powersave
+        check_cpu_exit_status "1.8 GHz"
+    fi
+
+    if [ "$cpu" == "Max 2.4" ]; then
+        /usr/bin/sudo cpupower frequency-set -u 2400000 -g powersave
+        check_cpu_exit_status "2.4 GHz"
+    fi
+
+    if [ "$cpu" == "Max 3.3" ]; then
+        /usr/bin/sudo cpupower frequency-set -u 3300000 -g powersave
+        check_cpu_exit_status "3.3 GHz"
+    fi
+
+    if [ "$cpu" == "Max 4.0" ]; then
+        /usr/bin/sudo cpupower frequency-set -u 4000000 -g powersave
+        check_cpu_exit_status "4.0 GHz"
+    fi
+}
+
+if [ "$menu" == "CPU GHz" ]; then
+    cpu
+fi
+
+if [ "$menu" == "Wł/Wył touchpad" ]; then
+    TOUCHPAD=$(xinput|grep Synaptics|cut -f 2|cut -f 2 -d '=')
+    TOUCHPAD_STATE=$(xinput list-props $TOUCHPAD|grep "Device Enabled"|cut -f 3)
+    if [ "$TOUCHPAD_STATE" -eq 0 ]; then
+        xinput enable $TOUCHPAD
+    else
+        xinput disable $TOUCHPAD
+    fi
+fi
+
+if [ "$menu" == "Edit Menu" ]; then
+    alacritty -e "$EDITOR $PWD/$(basename $0)"
+fi
