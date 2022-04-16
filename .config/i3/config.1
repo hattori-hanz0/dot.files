@@ -120,18 +120,12 @@ $win+Shift+Down exec "light -S 0"
 $bind --release Print exec --no-startup-id scrot "$HOME/Pictures/%Y-%m-%d-%H-%M-$RANDOM.png"
 
 #$bind $win+Shift+q kill
-$win+q kill
-$win+Tab workspace back_and_forth
 $win+F4 exec sudo systemctl suspend && i3lock -u -c 000000 -i ~/Pictures/accessdenied.png 
 $win+ctrl+s $exe sudo systemctl suspend
 $win+F5 exec sudo systemctl restart NetworkManager
 $win+F12 exec i3 exit
 #$win+r exec gmrun
 #$win+x exec --no-startup-id firefox
-
-#$bind $win+d exec dmenu_run
-$alt+Tab $exec rofi -show window -font "Terminus 10" -lines 6 -i -separator-style solid -opacity "90"
-$win+d $exec rofi -show run -i -separator-style solid -opacity "90"
 
 # scratchpad
 # $win+Shift+minus move scratchpad
@@ -198,19 +192,6 @@ $exec subl
 for_window [instance="qtpass"] floating enable
 for_window [instance="qtpass"] border pixel 1
 
-# plus, minus, backslash, semicolon
-# change focus
-$win+h  focus left
-$win+j  focus down
-$win+k  focus up
-$win+l  focus right
-
-# move focused window
-$win+Shift+h  move left
-$win+Shift+j  move down
-$win+Shift+k  move up
-$win+Shift+l  move right
-
 # przenieś worspace do monitora po prawej
 $win+Shift+bracketleft  move workspace to output left
 $win+Shift+bracketright move workspace to output right
@@ -225,52 +206,12 @@ $win+Shift+End    move container to workspace $ws10
 $win+Shift+Prior  move container to workspace prev
 $win+Shift+Next   move container to workspace next
 
-
-# split in horizontal orientation
-$win+backslash              split h
-
-# split in vertical orientation
-$win+minus                  split v
-
-# enter fullscreen mode for the focused container
-$win+f                      fullscreen toggle
-
-# change container layout (stacked, tabbed, toggle split)
-# $bind $win+s                      layout stacking
-$win+w                      layout tabbed
-$win+e                      layout toggle split
-
 # Uruchamia menu (rofi)
 $win+m                      exec ~/bin/menu
 
 # Uruchomienie books (rofi)
 $win+b                      exec ~/bin/books.sh
-
-# toggle tiling / floating
-$win+Shift+space            floating toggle
-
-# change focus between tiling / floating windows
-$win+space                  focus mode_toggle
-
-# focus the parent container
-$win+a                      focus parent
-
-# focus the child container
-# $bind $win+d                      focus child
-
-# Define names for default workspaces for which we configure key bindings later on.
-# We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
-
+#
 # switch to workspace
 $win+1 workspace number 1  ;; exec notify-send -t 500 "[ 1 ]"
 $win+2 workspace number 2  ;; exec notify-send -t 500 "[ 2 ]"
@@ -282,25 +223,6 @@ $win+7 workspace number 7  ;; exec notify-send -t 500 "[ 7 ]"
 $win+8 workspace number 8  ;; exec notify-send -t 500 "[ 8 ]"
 $win+9 workspace number 9  ;; exec notify-send -t 500 "[ 9 ]"
 $win+0 workspace number 10 ;; exec notify-send -t 500 "[ 10 ]"
-
-# move focused container to workspace
-$win+Shift+1 move container to workspace number 1
-$win+Shift+2 move container to workspace number 2
-$win+Shift+3 move container to workspace number 3
-$win+Shift+4 move container to workspace number 4
-$win+Shift+5 move container to workspace number 5
-$win+Shift+6 move container to workspace number 6
-$win+Shift+7 move container to workspace number 7
-$win+Shift+8 move container to workspace number 8
-$win+Shift+9 move container to workspace number 9
-$win+Shift+0 move container to workspace number 10
-
-# reload the configuration file
-$win+Shift+c                reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-$win+Shift+r                restart
-# exit i3 (logs you out of your X session)
-$win+Shift+e                exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # Shut down, restart and locking
 $win+Escape mode "$mode_system"
@@ -316,47 +238,6 @@ mode "$mode_system" {
     $bind Return mode "default"
     $bind Escape mode "default"
 }
-
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        $bind h resize shrink width 10 px or 10 ppt
-        $bind j resize grow height 10 px or 10 ppt
-        $bind k resize shrink height 10 px or 10 ppt
-        $bind l resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        $bind Left resize shrink width 10 px or 10 ppt
-        $bind Down resize grow height 10 px or 10 ppt
-        $bind Up resize shrink height 10 px or 10 ppt
-        $bind Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $win+r
-        $bind Return mode "default"
-        $bind Escape mode "default"
-        $win+r mode "default"
-}
-
-$win+r mode "resize"
-
-
-# bar {
-        # status_command ~/bumblebee-status/bumblebee-status -m uptime kernel cpu memory sensors battery datetime -p disk.path=/home/red datetime.format="%Y.%m.%d %a %b, %H:%M" 
-        # position top
-        # workspace_buttons no
-        ## font pango:Hack FontAwesome 8
-        # font pango:Ubuntu Mono derivative Powerline 13
-        ## mode hide
-# }
-# bar {
-    # status_command i3blocks
-    # position top
-# }
 
 exec --no-startup-id ~/bin/polybar example
 # bar {
@@ -389,5 +270,3 @@ for_window [class="Peek"] floating enable
 # assign [class="QOwnNotes"] → 7
 # for_window [class="QOwnNotes"] fullscreen
 # exec --no-startup-id QOwnNotes
-
-

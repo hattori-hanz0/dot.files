@@ -40,6 +40,7 @@ declare -a WYMAGANE_PAKIETY=(
     "google-fonts-ttf"
     "gopass"
     "grub"
+    "hsetroot"
     "htop"
     "i3"
     "i3blocks"

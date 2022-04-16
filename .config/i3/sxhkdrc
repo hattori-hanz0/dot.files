@@ -1,4 +1,67 @@
+# restart sxhkd
+super+Escape
+    pkill -USR1 -x sxhkd
+# uruchamia terminal alacritty
+super+Return
+    alacritty
+# uruchamia rofi
+super+d
+    rofi -show run -i -separator-style solid -opacity "90" -font "Noto Sans 14"
+# uruchamia terminal plywajacy alacritty
 super+t
     i3run --title fterm -- alacritty --title fterm
+# uruchamia plywajacy terminal alacritty z htop
 super+shift+t
     i3run --title fhtop -- alacritty --title fhtop -e htop
+# uruchomienie menu
+super+m
+    ~/.local/bin/menu
+# porusza sie pomiedzy oknami
+super+{h,j,k,l}
+    i3-msg focus {left,down,up,right}
+# zmienia obszar roboczy
+super+{1-9,0}
+    i3-msg workspace {1-9,10}
+# przenosi okna pomiedzy obszarami roboczymi
+super+shift+{1-9,0}
+    i3-msg move container to workspace number {1-9,0}
+# przenosi okno w wybranym kierunku
+super+shift+{h,j,k,l}
+    i3-msg move {left,down,up,right}
+super+f
+    i3-msg fullscreen toggle
+super+space
+    i3-msg focus mode_ftoggle
+super+shift+space
+    i3-msg floating toggle
+super+q
+    i3-msg kill
+super+shift+c
+    i3-msg reload
+super+shift+r
+    i3-msg restart
+
+super+r;{f,a}
+    {firefox,alacritty}
+super+s
+    i3-msg layout stacking
+super+w
+    i3-msg layout tabbed
+super+e
+    i3-msg layout toggle split
+super + ctrl + {h,j,k,l}
+    i3-msg resize {grow width 5 px or 5 ppt, shrink height 5 px or 5 ppt, grow height 5 px or 5 ppt, shrink width 5 px or 5 ppt}
+# split in horizontal orientation
+super+backslash
+    i3-msg split h
+super+minus
+    i3-msg split v
+alt+Tab
+    rofi -show window -font "Terminus 9" -lines 6 -i -separator-style solid -opacity "90"
+# toggle bar
+super+shift+m
+    i3-msg bar mode toggle
+super+shift+e
+    i3-msg exit
+super+tab
+    i3-msg workspace back_and_forth

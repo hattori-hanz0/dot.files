@@ -9,7 +9,10 @@ function run {
 
 run picom --xrender-sync-fence --backend xrender
 run sxhkd -c ~/.config/i3/sxhkdrc
+run hsetroot
+run dunst
 
+# run variety
 # xsetroot -solid black &
 # polybar example &
 # nm-applet &
