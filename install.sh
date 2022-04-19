@@ -54,3 +54,57 @@ function kopiuj() {
 }
 
 kopiuj
+
+function instalacja_dodatkowego_oprogramowania() {
+    mkdir -p $HOME/src
+    if [ -d $HOME/src/i3ass ]; then
+        rm -rf $HOME/src/i3ass
+    fi
+    if [ -d $HOME/src/clipmenu ]; then
+        rm -rf $HOME/src/clipmenu
+    fi
+    if [ -d $HOME/src/clipnotify ]; then
+        rm -rf $HOME/src/clipnotify
+    fi
+    git clone https://github.com/budlabs/i3ass $HOME/src/i3ass
+    git clone https://github.com/cdown/clipmenu $HOME/src/clipmenu
+    git clone https://github.com/cdown/clipnotify $HOME/src/clipnotify
+}
+
+instalacja_dodatkowego_oprogramowania
+
+function instalacja_clipnotify {
+    sudo xbsp-install xorgproto libX11-devel libXfixes-devel
+    cd $HOME/src/clipnotify
+    make clean
+    make
+    cp clipnotify ~/.local/bin/
+    # sudo xbsp-remove xorgproto libX11-devel libXfixes-devel
+}
+
+instalacja_clipnotify
+
+function instalacja_clipmenu() {
+    cd $HOME/src/clipmenu
+    cp clipctl ~/.local/bin
+    cp clipdel ~/.local/bin
+    cp clipfsck ~/.local/bin
+    cp clipmenu ~/.local/bin
+    cp clipmenud ~/.local/bin
+}
+
+instalacja_clipmenu
+
+function edycja_vars() {
+    nvim $HOME/.config/vars
+}
+
+echo
+read -p "Czy chcesz zmienić parametry $HOME/.config/vars [t/N]: "
+case $REPLY in
+    t|T|y|Y)
+        edycja_vars
+        ;;
+    n|N) ;;
+    *) ;;
+esac

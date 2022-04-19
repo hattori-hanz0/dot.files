@@ -10,6 +10,7 @@
 .config/rofi
 .config/starship.toml
 .config/vars
+.config/zathura
 .local/bin
 .tmux-lff.conf
 .tmux.conf

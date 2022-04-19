@@ -63,5 +63,5 @@ super+shift+m
     i3-msg bar mode toggle
 super+shift+e
     i3-msg exit
-super+tab
+super+Tab
     i3-msg workspace back_and_forth

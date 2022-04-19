@@ -3,7 +3,7 @@ set shellopts '-eu'
 set ifs "\n"
 set scrolloff 10
 set info size:time
-set previewer ~/bin/scope.sh
+set previewer ~/.local/bin/scope.sh
 set hidden
 
 # Tryb jednej kolumny

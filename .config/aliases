@@ -75,6 +75,8 @@ alias lsx="ls -F | grep '*$'"  # pokazuje pliki wykonywalne w lokalizacji
 alias exa-tree="$HOME/.local/bin/exa-tree"
 
 alias cleartemp="$HOME/.local/bin/cleartemp"
+
+alias pass=gopass
 #
 #  alias .co="$EDITOR ~/.config/conky/conky.conf"
 #  alias .df="$HOME/bin/dotfiles"
@@ -152,12 +154,12 @@ alias cleartemp="$HOME/.local/bin/cleartemp"
 #
 #  alias pwgen="$HOME/bin/pwgen.sh"
 #
-#  alias dec="$HOME/bin/DecryptGPG"
-#  alias enc="$HOME/bin/EncryptGPG"
-#  alias DecryptGPG="$HOME/bin/DecryptGPG"
-#  alias DecryptSSL="$HOME/bin/DecryptSSL"
-#  alias EncryptGPG="$HOME/bin/EncryptGPG"
-#  alias EncryptSSL="$HOME/bin/EncryptSSL"
+ alias dec="$HOME/bin/DecryptGPG"
+ alias enc="$HOME/bin/EncryptGPG"
+ alias DecryptGPG="$HOME/bin/DecryptGPG"
+ alias DecryptSSL="$HOME/bin/DecryptSSL"
+ alias EncryptGPG="$HOME/bin/EncryptGPG"
+ alias EncryptSSL="$HOME/bin/EncryptSSL"
 #
 #  alias vhdmk="$HOME/bin/vhdmk.sh"
 #  alias vhdmount="$HOME/bin/vhdmount.sh"
