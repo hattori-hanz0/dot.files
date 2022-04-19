@@ -2,6 +2,8 @@
 
 # Skrypt sprawdza czy są zainstalowane potrzebne pakiety
 
+KATALOG=$(readlink -m $(dirname "$0"))
+
 . ~/.local/bin/colors
 
 shopt -s nocasematch
@@ -9,7 +11,7 @@ shopt -s nocasematch
 declare BRAK
 declare ZNALAZLEM
 declare LISTA_PAKIETOW
-mapfile -t WYMAGANE_PAKIETY < <(cat pakiety-void-i3.txt)
+mapfile -t WYMAGANE_PAKIETY < <(cat $KATALOG/pakiety-void-i3.txt)
 
 # Tworzy tablicę LISTA_PAKIETOW zawierającą wszystkie zainstalowane pakiety w systemie
 msg_info "Tworzę listę zainstalowanych pakietów."

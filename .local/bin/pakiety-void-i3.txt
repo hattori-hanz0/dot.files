@@ -44,6 +44,7 @@ lowdown
 maim
 mc
 neovim
+neovim-qt
 nerd-fonts
 nerd-fonts-otf
 nerd-fonts-ttf
