@@ -14,6 +14,7 @@ alias c=clear
 alias q=exit
 
 alias n=nvim
+alias nvim-qt-local=$HOME/.local/bin/nvim-qt-local
 alias man="$HOME/.local/bin/man-nvim.sh"
 
 #  # Git
