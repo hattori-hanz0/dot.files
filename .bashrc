@@ -12,9 +12,6 @@
 # wczytanie aliasów z pliku ~/.config/aliases
 [ -f "$HOME/.config/aliases" ] && . "$HOME/.config/aliases"
 
-export PATH=$PATH:~/.local/bin
-export LC_ALL=pl_PL.UTF-8
-
 # wyłączenie ctrl-s i ctrl-q
 stty -ctlecho
 
