@@ -8,6 +8,7 @@ cpupower
 cryptsetup
 curl
 dbus
+delta
 dex
 dmenu
 dunst
