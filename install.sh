@@ -95,6 +95,14 @@ function instalacja_clipmenu() {
 
 instalacja_clipmenu
 
+function instalacja_i3ass() {
+    cd ~/src/i3ass
+    make
+    PREFIX=~/.local make install
+}
+
+instalacja_i3ass
+
 function edycja_vars() {
     nvim $HOME/.config/vars
 }
