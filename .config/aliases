@@ -32,11 +32,19 @@ alias push="$HOME/.local/bin/push.sh"
 alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
 alias .ala="$EDITOR $HOME/.config/alacritty/alacritty.yml"
 alias .b="$EDITOR $HOME/.bashrc"
-alias .n="nvim $HOME/.config/nvim/init.vim"
-alias .i3="$EDITOR $HOME/.config/i3/config"
-alias .sx="$EDITOR $HOME/.config/i3/sxhkdrc"
-alias .t="$EDITOR $HOME/.tmux.conf"
+alias .co="$EDITOR ~/.config/conky/conky.conf"
 alias .df="$HOME/.local/bin/dotfiles.sh"
+alias .g="$EDITOR $HOME/.gitconfig"
+alias .i3="$EDITOR $HOME/.config/i3/config"
+alias .kh="$EDITOR $HOME/.ssh/known_hosts"
+alias .n="nvim $HOME/.config/nvim/init.lua"
+alias .nv="nvim -c 'e \$MYVIMRC'"
+alias .s="$EDITOR $HOME/.ssh/config"
+alias .sx="$EDITOR $HOME/.config/i3/sxhkdrc && pkill -USR1 -x sxhkd"
+alias .t="$EDITOR $HOME/.tmux.conf"
+alias .vars="$EDITOR $HOME/.config/vars && source $HOME/.config/vars"
+alias .xr="$EDITOR ~/.Xresources && xrdb ~/.Xresources"
+alias .z="$EDITOR $HOME/.zshrc"
 
 # Pliki i katalogi
 alias ...="cd ../.."
@@ -78,21 +86,24 @@ alias exa-tree="$HOME/.local/bin/exa-tree"
 alias cleartemp="$HOME/.local/bin/cleartemp"
 
 alias pass=gopass
-#
-#  alias .co="$EDITOR ~/.config/conky/conky.conf"
-#  alias .df="$HOME/bin/dotfiles"
-#  alias .g="$EDITOR $HOME/.gitconfig"
-#  alias .kh="$EDITOR $HOME/.ssh/known_hosts"
-#  alias .nv="nvim -c 'e \$MYVIMRC'"
-#  alias .s="$EDITOR $HOME/.ssh/config"
-#  alias .sx="$EDITOR $HOME/.config/sxhkd/sxhkdrc && pkill -USR1 -x sxhkd"
-#  # alias .v="$EDITOR -c 'e \$MYVIMRC'"
-#  alias .v="$HOME/bin/vimrc"
-#  alias .va="$HOME/bin/vimrc_all"
-#  alias .vars="$EDITOR $HOME/.config/vars && source $HOME/.config/vars"
-#  alias .varsl="$EDITOR $HOME/.config/vars_local && source $HOME/.config/vars_local"
-#  alias .xr="$EDITOR ~/.Xresources && xrdb ~/.Xresources"
-#  alias .z="$EDITOR $HOME/.zshrc"
+
+# Szyfrowanie
+alias dec="$HOME/.local/bin/DecryptGPG"
+alias enc="$HOME/.local/bin/EncryptGPG"
+alias DecryptGPG="$HOME/.local/bin/DecryptGPG"
+alias DecryptSSL="$HOME/.local/bin/DecryptSSL"
+alias EncryptGPG="$HOME/.local/bin/EncryptGPG"
+alias EncryptSSL="$HOME/.local/bin/EncryptSSL"
+
+# systemctl, zarządzanie energią
+
+# alias suspend="sudo systemctl suspend"
+# alias sysdis="sudo systemctl disable"
+# alias sysena="sudo systemctl enable"
+# alias sysstart="sudo systemctl start"
+# alias sysstop="sudo systemctl stop"
+# alias reboot="sudo reboot"
+# alias batt="$HOME/.local/bin/batt"
 #
 #  # Pakiety Fedora
 #  alias di="sudo dnf install"
@@ -155,12 +166,6 @@ alias pass=gopass
 #
 #  alias pwgen="$HOME/bin/pwgen.sh"
 #
- alias dec="$HOME/bin/DecryptGPG"
- alias enc="$HOME/bin/EncryptGPG"
- alias DecryptGPG="$HOME/bin/DecryptGPG"
- alias DecryptSSL="$HOME/bin/DecryptSSL"
- alias EncryptGPG="$HOME/bin/EncryptGPG"
- alias EncryptSSL="$HOME/bin/EncryptSSL"
 #
 #  alias vhdmk="$HOME/bin/vhdmk.sh"
 #  alias vhdmount="$HOME/bin/vhdmount.sh"
@@ -179,16 +184,6 @@ alias pass=gopass
 #  alias gpg-list-secret-keys-short="$HOME/bin/gpg-list-secret-keys-short"
 #  alias gpg-list-secret-keys="$HOME/bin/gpg-list-secret-keys"
 #
-#  # systemctl, zarządzanie energią
-#
-#  alias suspend="sudo systemctl suspend"
-#  alias sysdis="sudo systemctl disable"
-#  alias sysena="sudo systemctl enable"
-#  alias sysstart="sudo systemctl start"
-#  alias sysstop="sudo systemctl stop"
-#
-#  alias reboot="sudo reboot"
-#  alias batt="$HOME/bin/batt"
 #
 #  # Wyszukiwanie i przeszukiwanie
 #
