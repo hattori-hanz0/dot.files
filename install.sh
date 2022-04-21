@@ -15,8 +15,8 @@ mkdir -p $BACKUP_DIR
 DATA=$(date +%F-%T | tr : -)
 DATABS=$(date +%F-%T | tr : - | tr -d -)
 
-XZ_T=2  # ilość wątków
-XZ_C=5  # stopień kompresji
+XZ_T=2 # ilość wątków
+XZ_C=5 # stopień kompresji
 
 # wczytuje zawartosc skryptu colors
 . $KATALOG/.local/bin/colors
@@ -47,7 +47,7 @@ function kopiuj() {
         if [ -d "$LINE" ]; then
             cp -r $LINE $(dirname $HOME/$LINE)
         fi
-    done < "$KATALOG/install_lista_plikow.txt"
+    done <"$KATALOG/install_lista_plikow.txt"
     echo
     msg_ok "Instalacja zakonczona."
     echo
@@ -102,9 +102,9 @@ function edycja_vars() {
 echo
 read -p "Czy chcesz zmienić parametry $HOME/.config/vars [t/N]: "
 case $REPLY in
-    t|T|y|Y)
+    t | T | y | Y)
         edycja_vars
         ;;
-    n|N) ;;
+    n | N) ;;
     *) ;;
 esac

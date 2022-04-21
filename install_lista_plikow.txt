@@ -14,3 +14,4 @@
 .local/bin
 .tmux-lff.conf
 .tmux.conf
+.xsession
