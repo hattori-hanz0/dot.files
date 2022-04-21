@@ -74,7 +74,7 @@ function instalacja_dodatkowego_oprogramowania() {
 instalacja_dodatkowego_oprogramowania
 
 function instalacja_clipnotify {
-    sudo xbsp-install xorgproto libX11-devel libXfixes-devel
+    sudo xbps-install xorgproto libX11-devel libXfixes-devel
     cd $HOME/src/clipnotify
     make clean
     make

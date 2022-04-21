@@ -37,6 +37,15 @@ eval $(gpg-agent --daemon)
 GPG_TTY=$(tty)
 export GPG_TTY
 
+# Dodanie klucza do keychain
+# /usr/bin/keychain $HOME/.ssh/id_dsa
+# source $HOME/.keychain/$HOSTNAME-sh
+
+# Usunięcie klucza z keychain
+# keychain --clear
+# keychain --clear $HOME/.ssh/id_dsa
+
+
 # source <(gopass completion bash)
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
