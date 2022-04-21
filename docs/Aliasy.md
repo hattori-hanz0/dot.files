@@ -8,6 +8,8 @@ Plik wcześniej wczytują zmienne znajdujące się w pliku `.config/vars`
 
 ### Alias 'pass'
 
+Prowadzi do programu `gopass`
+
 ```
 alias pass=gopass
 ```
@@ -24,11 +26,15 @@ alias sudo=$SUDO
 
 ### Alias 'pg'
 
+Wyszukuje procesu przekazanego jako argument
+
 ```
 alias pg="ps ax|grep"
 ```
 
 ### Alias 'k'
+
+Zabija proces
 
 ```
 alias k="kill"
@@ -36,11 +42,15 @@ alias k="kill"
 
 ### Alias 'c'
 
+Czyści ekran
+
 ```
 alias c=clear
 ```
 
 ### Alias 'q'
+
+Zamyka powłokę za pomocą komendy `exit`
 
 ```
 alias q=exit
@@ -48,17 +58,23 @@ alias q=exit
 
 ### Alias 'n'
 
+Uruchamia edytor Neovim
+
 ```
 alias n=nvim
 ```
 
 ### Alias 'nvim-qt-local'
 
+Uruchamia edytor Neovim ze ścieżki `.local/nvim` w środowisku graficznym
+
 ```
 alias nvim-qt-local=$HOME/.local/bin/nvim-qt-local
 ```
 
 ### Alias 'man'
+
+Uruchamia strony podręcznika man w edytorze Neovim
 
 ```
 alias man="$HOME/.local/bin/man-nvim.sh"
@@ -68,20 +84,46 @@ alias man="$HOME/.local/bin/man-nvim.sh"
 
 ### Alias 'g'
 
+Alias do polecenia `git`
+
 ```
 alias g=git
 ```
 
 ### Alias 'ga'
 
+Uruchamia polecenie `git add -A` a następnie `git commit`
+
 ```
 alias ga="$HOME/.local/bin/ga.sh"
 ```
 
+Skrypt `ga.sh`
+
+```bash
+#!/usr/bin/env bash
+
+DATA=$(date +%F-%T)
+
+cd "$1"
+
+git add -A && git commit -m $DATA
+```
+
 ### Alias 'gd'
+
+Uruchamia polecenie `git diff`
 
 ```
 alias gd="$HOME/.local/bin/gd.sh"
+```
+
+Skrypt `gd.sh`
+
+```bash
+#!/usr/bin/env bash
+
+git diff
 ```
 
 ### Alias 'gp'
@@ -108,6 +150,14 @@ alias gs="$HOME/.local/bin/gs.sh"
 alias gl="$HOME/.local/bin/gl.sh"
 ```
 
+Skrypt `gl.sh`
+
+```bash
+#!/usr/bin/env bash
+
+git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''        %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+```
+
 ### Alias 'pu'
 
 ```
@@ -124,17 +174,23 @@ alias push="$HOME/.local/bin/push.sh"
 
 ### Alias '.a'
 
+Edytuje plik `~/.config/aliases`
+
 ```
 alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
 ```
 
 ### Alias '.ala'
 
+Edytuje plik konfiguracyjny terminala Alacritty
+
 ```
 alias .ala="$EDITOR $HOME/.config/alacritty/alacritty.yml"
 ```
 
 ### Alias '.b'
+
+Edytuje konfigurację powłoki systemowej BASH
 
 ```
 alias .b="$EDITOR $HOME/.bashrc"
@@ -146,7 +202,15 @@ alias .b="$EDITOR $HOME/.bashrc"
 alias .n="nvim $HOME/.config/nvim/init.vim"
 ```
 
+### Alias '.nv'
+
+```
+alias .nv="nvim -c 'e \$MYVIMRC'"
+```
+
 ### Alias '.i3'
+
+Edytuje konfiguracje i3 WM
 
 ```
 alias .i3="$EDITOR $HOME/.config/i3/config"
@@ -154,11 +218,15 @@ alias .i3="$EDITOR $HOME/.config/i3/config"
 
 ### Alias '.sx'
 
+Edytuje konfigurację sxhkd dla i3 WM
+
 ```
 alias .sx="$EDITOR $HOME/.config/i3/sxhkdrc && pkill -USR1 -x sxhkd"
 ```
 
 ### Alias '.t'
+
+Edytuje konfigurację TMUX
 
 ```
 alias .t="$EDITOR $HOME/.tmux.conf"
@@ -170,7 +238,46 @@ alias .t="$EDITOR $HOME/.tmux.conf"
 alias .df="$HOME/.local/bin/dotfiles.sh"
 ```
 
+Skrypt `dotfiles.sh`
+
+```bash
+#!/usr/bin/env bash
+
+# alias do edycji skryptu to: .df
+
+. ~/.config/vars
+
+ARR=(
+    ~/.bashrc
+    ~/.config/alacritty/alacritty.yml
+    ~/.config/aliases
+    ~/.config/awesome/autorun.sh
+    ~/.config/awesome/rc.lua
+    ~/.config/bmdirs
+    ~/.config/bspwm/autostart.sh
+    ~/.config/bspwm/bspwmrc
+    ~/.config/conky/conky.conf
+    ~/.config/nvim/init.vim
+    ~/.config/sxhkd/sxhkdrc
+    ~/.config/vars
+    ~/.gitconfig
+    ~/.ssh/config
+    ~/.tmux.conf
+    ~/.vim/vimrc
+    ~/.Xresources
+    ~/.zshrc
+    )
+
+PLIK=$(printf '%s\n' "${ARR[@]}"|fzf)
+
+if [ "$PLIK" ]; then
+   $EDITOR "$PLIK"
+fi
+```
+
 ### Alias '.co'
+
+Edytuje konfigurację `conky.conf`
 
 ```
 alias .co="$EDITOR ~/.config/conky/conky.conf"
@@ -188,13 +295,9 @@ alias .g="$EDITOR $HOME/.gitconfig"
 alias .kh="$EDITOR $HOME/.ssh/known_hosts"
 ```
 
-### Alias '.nv'
-
-```
-alias .nv="nvim -c 'e \$MYVIMRC'"
-```
-
 ### Alias '.s'
+
+Edytuje konfigurację klienta SSH
 
 ```
 alias .s="$EDITOR $HOME/.ssh/config"
@@ -368,19 +471,34 @@ alias exa-tree="$HOME/.local/bin/exa-tree"
 
 ### Alias 'cleartemp'
 
+Czyści katalog z plikami tymczasowymi `~/tmp` starsze niż 7 dni
+
 ```
 alias cleartemp="$HOME/.local/bin/cleartemp"
+```
+
+Skrypt `cleartemp`
+
+```bash
+#!/usr/bin/env bash
+
+find -L ~/tmp -type f -mtime +7 -print -exec rm {} \;
+find -L ~/tmp -type d -mtime +7 -exec rmdir --ignore-fail-on-non-empty {} \;
 ```
 
 ## Szyfrowanie
 
 ### Alias 'dec'
 
+Alias do skryptu `DecryptGPG`
+
 ```
 alias dec="$HOME/.local/bin/DecryptGPG"
 ```
 
 ### Alias 'enc'
+
+Alias do skryptu `EncryptGPG`
 
 ```
 alias enc="$HOME/.local/bin/EncryptGPG"
@@ -392,10 +510,46 @@ alias enc="$HOME/.local/bin/EncryptGPG"
 alias DecryptGPG="$HOME/.local/bin/DecryptGPG"
 ```
 
+Skrypt `DecryptGPG`
+
+```bash
+#!/usr/bin/env bash
+
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do odszyfrowania.
+    echo $ enc plik.txt
+    return 1
+fi
+if [ ! -e "$1" ]; then
+    echo Podany plik nie istnieje
+else
+    nazwa_pliku=$(basename "$1" .gpg)
+    gpg2 -o "$nazwa_pliku" -d "$1"
+fi
+```
+
 ### Alias 'DecryptSSL'
 
 ```
 alias DecryptSSL="$HOME/.local/bin/DecryptSSL"
+```
+
+Skrypt `DecryptSSL`
+
+```bash
+#!/usr/bin/env bash
+
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do odszyfrowania.
+    echo $ dec plik.txt.enc
+    return 1
+fi
+if [ ! -e $1 ]; then
+    echo "Podany plik ($1) nie istnieje."
+    return 1
+else
+    openssl aes-256-cbc -d -a -in "$1" -out $(basename $1 .enc);
+fi
 ```
 
 ### Alias 'EncryptGPG'
@@ -403,6 +557,8 @@ alias DecryptSSL="$HOME/.local/bin/DecryptSSL"
 ```
 alias EncryptGPG="$HOME/.local/bin/EncryptGPG"
 ```
+
+Skrypt `EncryptGPG`
 
 ```bash
 #!/usr/bin/env bash
@@ -434,4 +590,22 @@ esac
 
 ```
 alias EncryptSSL="$HOME/.local/bin/EncryptSSL"
+```
+
+Skrypt `EncryptSSL`
+
+```bash
+#!/usr/bin/env bash
+
+if [[ $# < 1 ]]; then
+    echo Podaj nazwę pliku do zaszyfrowania.
+    echo $ enc plik.txt
+    return 1
+else
+    if [ ! -e $1 ]; then
+        echo Podany plik nie istnieje
+    else
+        openssl aes-256-cbc -a -salt -in "$1" -out "$1.enc";
+    fi
+fi
 ```
