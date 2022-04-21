@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# skrypt do wyświetlania wpisów w dzienniku schowka, a następnie uruchamia
+# na wybranym wpisie clipdel -d czyli usuwa wpis
+
+# wymaga clipmenu i clipnotify
+# https://github.com/cdown/clipmenu
+# https://github.com/cdown/clipnotify
+
+: "${CM_LAUNCHER=rofi}"
+: "${CM_DIR="${XDG_RUNTIME_DIR-"${TMPDIR-/tmp}"}"}"
+: "${CM_HISTLENGTH=12}"
+
+# major_version to przeważnie liczba w nazwie pliku
+# /var/run/[USER_ID]/clipmenu.$major_version.[NAZWA_UŻYTKOWNIKA]
+major_version=$(ls $CM_DIR|grep clipmenu|cut -f 2 -d '.')
+
+shopt -s nullglob
+
+cache_dir=$CM_DIR/clipmenu.$major_version.$USER
+cache_file_prefix=$cache_dir/line_cache
+
+list_clips() {
+    cat "$cache_file_prefix" /dev/null | LC_ALL=C sort -rnk 1 | cut -d' ' -f2- | awk '!seen[$0]++'
+}
+
+list_clips | rofi -dmenu | xargs -ICLIP clipdel -d "CLIP"

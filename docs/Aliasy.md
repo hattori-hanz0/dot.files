@@ -609,3 +609,210 @@ else
     fi
 fi
 ```
+
+## Wyszukiwanie i przeszukiwanie
+
+### Alias 'rgvi'
+
+```
+alias rgvi="$HOME/.local/bin/rgvi"
+```
+
+Skrypt `rgvi`
+
+```bash
+#!/usr/bin/env bash
+
+. ~/.config/vars
+
+SEARCH=$(sk --ansi -i -c 'rg --color=always --hidden --line-number "{}"' \
+    --bind "ctrl-p:toggle-preview" --preview "preview.sh {}" \
+    --preview-window=down:50%:hidden)
+
+readarray -td: array <<<"$SEARCH"
+
+FILE=${array[0]}
+LINE=${array[1]}
+ARRAY_NOE=${#array[@]}
+
+if [ $ARRAY_NOE -gt 1 ]; then
+    $EDITOR $FILE +$LINE
+fi
+```
+
+### Alias 'se'
+
+```
+alias se="$HOME/.local/bin/se"
+```
+
+Skrypt `se`
+
+```bash
+#!/usr/bin/env bash
+
+. ~/.config/vars
+
+BAT=$(which bat)
+PREVIEW_SH=$(which preview.sh)
+
+if [ ! -z $BAT ]; then
+    PREVIEW="bat --style=numbers --color=always {}"
+elif [ ! -z $PREVIEW_SH ]; then
+    PREVIEW="preview.sh {}"
+else
+    echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"
+    exit
+fi
+
+SEARCH=$(fd . --ignore-file .gitignore | sk --exact --tac --prompt="Wyszukaj: " \
+    --ansi --bind "ctrl-p:toggle-preview" --preview "$PREVIEW" \
+    --preview-window=right:70%)
+[[ $SEARCH ]] && $EDITOR $SEARCH
+```
+
+### Alias 'sedi'
+
+```
+alias sedi="$HOME/.local/bin/sedi"
+```
+
+Skrypt `sedi`
+
+```bash
+#!/usr/bin/env bash
+
+. ~/.config/vars
+
+PREVIEW=$(which preview_dir.sh)
+
+if [ ! -z $PREVIEW ]; then
+    PREVIEW="preview_dir.sh {}"
+else
+    echo "Brak skryptu 'preview_dir.sh', należy doinstalować jeden z nich"
+    exit
+fi
+
+SEARCH=$(fd . -t d --ignore-file .gitignore | sk --exact --tac --prompt="Wyszukaj: " \
+    --ansi --bind "ctrl-p:toggle-preview" --preview "$PREVIEW" \
+    --preview-window=down:50%)
+
+[[ $SEARCH ]] && $EDITOR $SEARCH
+```
+
+### Alias 'sefi'
+
+```
+alias sefi="$HOME/.local/bin/sefi"
+```
+
+Skrypt `sefi`
+
+```bash
+#!/usr/bin/env bash
+
+. ~/.config/vars
+
+BAT=$(which bat)
+PREVIEW_SH=$(which preview.sh)
+if [ ! -z $BAT ]; then
+    PREVIEW="bat --style=numbers --color=always {}"
+ elif [ ! -z $PREVIEW_SH ]; then
+    PREVIEW="preview.sh {}"
+else
+    echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"
+    exit
+fi
+SEARCH=$(fd . -t f --ignore-file .gitignore | sk --exact --tac --prompt="Wyszukaj: " \
+    --ansi --bind "ctrl-p:toggle-preview" --preview "$PREVIEW" \
+    --preview-window=down:50%)
+[ "$SEARCH" ] && $EDITOR "$SEARCH"
+```
+
+### Alias 'vf'
+
+```
+alias vf="$HOME/.local/bin/vf"
+```
+
+Skrypt `vf`
+
+```bash
+#!/usr/bin/env bash
+
+. ~/.config/vars
+
+sk | xargs -r -I % $EDITOR %
+```
+
+### Alias 'vs'
+
+```
+alias vs="$HOME/.local/bin/vs"
+```
+
+Skrypt `vs`
+
+```bash
+#!/usr/bin/env bash
+
+# export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden'
+# vim $(rg --files --hidden --follow --glob '!venv'|fzf)
+
+. ~/.config/vars
+
+if [[ $# == 0 ]]; then
+
+    if [ -f $(which bat) ]; then
+        $EDITOR "$(fzf -e --preview 'bat --style=numbers --color=always {} | head -500')"
+    else
+        # vim $(fzf)
+        # vim "$(find * | fzf +s --tac)"
+        $EDITOR "$(fzf -e --preview 'cat {}')"
+    fi
+else
+    $EDITOR "$@"
+fi
+```
+
+### Alias 'last-edit'
+
+```
+alias last-edit="$HOME/.local/bin/last-edit"
+```
+
+Skrypt `last-edit`
+
+```bash
+#!/usr/bin/env bash
+
+find $HOME -type f -mtime -3 -mtime +4
+find $HOME -type f -mtime -3
+```
+
+### Alias 'last-edit-local'
+
+```
+alias last-edit-local="$HOME/.local/bin/last-edit-local"
+```
+
+Skrypt `last-edit-local`
+
+```bash
+#!/usr/bin/env bash
+
+find . -type f -mtime -3 -mtime +4
+find . -type f -mtime -3
+```
+
+### Alias 'fdh'
+
+```
+alias fdh="fd --hidden"
+```
+
+### Alias 'rgh'
+
+```
+alias rgh="rg --hidden"
+```

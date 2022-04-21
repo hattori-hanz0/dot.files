@@ -98,6 +98,21 @@ alias DecryptSSL="$HOME/.local/bin/DecryptSSL"
 alias EncryptGPG="$HOME/.local/bin/EncryptGPG"
 alias EncryptSSL="$HOME/.local/bin/EncryptSSL"
 
+# Wyszukiwanie i przeszukiwanie
+
+alias rgvi="$HOME/.local/bin/rgvi"
+alias se="$HOME/.local/bin/se"
+alias sedi="$HOME/.local/bin/sedi"
+alias sefi="$HOME/.local/bin/sefi"
+alias vf="$HOME/.local/bin/vf"
+alias vs="$HOME/.local/bin/vs"
+
+alias last-edit="$HOME/.local/bin/last-edit"
+alias last-edit-local="$HOME/.local/bin/last-edit-local"
+
+alias fdh="fd --hidden"
+alias rgh="rg --hidden"
+
 # systemctl, zarządzanie energią
 
 # alias suspend="sudo systemctl suspend"
@@ -108,23 +123,22 @@ alias EncryptSSL="$HOME/.local/bin/EncryptSSL"
 # alias reboot="sudo reboot"
 # alias batt="$HOME/.local/bin/batt"
 #
-#  # Pakiety Fedora
-#  alias di="sudo dnf install"
-#  alias dr="sudo dnf remove"
-#  alias ds="$HOME/bin/ds"
-#  alias update="$HOME/bin/update"
+# Pakiety Fedora
+# alias di="sudo dnf install"
+# alias dr="sudo dnf remove"
+# alias ds="$HOME/bin/ds"
+# alias update="$HOME/bin/update"
 #
-#  # Kopie zapasowe
+# Kopie zapasowe
 #
-#  alias backup-dir="$HOME/bin/backup-dir"
+# alias backup-dir="$HOME/bin/backup-dir"
 #
-#  # System plików / pamięć
+# System plików / pamięć
 #
-#  alias df="df -h"
-#  alias dfr="df -h /"
-#  alias free="free -m"
-#  alias cryptsetup="sudo cryptsetup"
-#
+# alias df="df -h"
+# alias dfr="df -h /"
+# alias free="free -m"
+
 #  # ROFI / dmenu
 #
 #  alias books="$HOME/bin/books"
@@ -170,38 +184,23 @@ alias EncryptSSL="$HOME/.local/bin/EncryptSSL"
 #  alias pwgen="$HOME/bin/pwgen.sh"
 #
 #
-#  alias vhdmk="$HOME/bin/vhdmk.sh"
-#  alias vhdmount="$HOME/bin/vhdmount.sh"
-#  alias vhdumount="$HOME/bin/vhdumount.sh"
+# alias cryptsetup="sudo cryptsetup"
+# alias vhdmk="$HOME/bin/vhdmk.sh"
+# alias vhdmount="$HOME/bin/vhdmount.sh"
+# alias vhdumount="$HOME/bin/vhdumount.sh"
 #
-#  alias clear-gpg-passwd="$HOME/bin/clear-gpg-passwd"
-#  alias gpg-agent-restart="$HOME/bin/gpg-agent-restart"
-#  alias gpg-delete-keys="$HOME/bin/gpg-delete-keys"
-#  alias gpg-delete-secret-keys="$HOME/bin/gpg-delete-secret-keys"
-#  alias gpg-edit-key="$HOME/bin/gpg-edit-key"
-#  alias gpg-export-secret-key="$HOME/bin/gpg-export-secret-key"
-#  alias gpg-export="$HOME/bin/gpg-export"
-#  alias gpg-gen-key="$HOME/bin/gpg-gen-key"
-#  alias gpg-list-keys-short="$HOME/bin/gpg-list-keys-short"
-#  alias gpg-list-keys="$HOME/bin/gpg-list-keys"
-#  alias gpg-list-secret-keys-short="$HOME/bin/gpg-list-secret-keys-short"
-#  alias gpg-list-secret-keys="$HOME/bin/gpg-list-secret-keys"
-#
-#
-#  # Wyszukiwanie i przeszukiwanie
-#
-#  alias rgvi="$HOME/bin/rgvi"
-#  alias se="$HOME/bin/se"
-#  alias sedi="$HOME/bin/sedi"
-#  alias sefi="$HOME/bin/sefi"
-#  alias vf="$HOME/bin/vf"
-#  alias vs="$HOME/bin/vs"
-#
-#  alias last-edit="$HOME/bin/last-edit"
-#  alias open-with-fzf="$HOME/bin/open-with-fzf"
-#
-#  alias fdh="fd --hidden"
-#  alias rgh="rg --hidden"
+# alias clear-gpg-passwd="$HOME/bin/clear-gpg-passwd"
+# alias gpg-agent-restart="$HOME/bin/gpg-agent-restart"
+# alias gpg-delete-keys="$HOME/bin/gpg-delete-keys"
+# alias gpg-delete-secret-keys="$HOME/bin/gpg-delete-secret-keys"
+# alias gpg-edit-key="$HOME/bin/gpg-edit-key"
+# alias gpg-export-secret-key="$HOME/bin/gpg-export-secret-key"
+# alias gpg-export="$HOME/bin/gpg-export"
+# alias gpg-gen-key="$HOME/bin/gpg-gen-key"
+# alias gpg-list-keys-short="$HOME/bin/gpg-list-keys-short"
+# alias gpg-list-keys="$HOME/bin/gpg-list-keys"
+# alias gpg-list-secret-keys-short="$HOME/bin/gpg-list-secret-keys-short"
+# alias gpg-list-secret-keys="$HOME/bin/gpg-list-secret-keys"
 #
 #  # Notatki
 #
