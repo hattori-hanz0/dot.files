@@ -73,6 +73,7 @@ sshpass
 starship
 sxhkd
 tmux
+tree
 virtualbox-ose-guest
 virtualbox-ose-guest-dkms
 void-repo-multilib
