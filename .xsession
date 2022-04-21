@@ -6,4 +6,4 @@ if [ ! -d ~/tmp ]; then
     mkdir -p ~/tmp
 fi
 
-echo "$(date) Startuje graficzny interfejs" >> ~/tmp/logfile
+echo "$(date) Startuje interfejs graficzny" >> ~/tmp/logfile
