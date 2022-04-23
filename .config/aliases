@@ -17,7 +17,7 @@ alias n=nvim
 alias nvim-qt-local=$HOME/.local/bin/nvim-qt-local
 alias man="$HOME/.local/bin/man-nvim.sh"
 
-#  # Git
+# Git
 alias g=git
 alias ga="$HOME/.local/bin/ga.sh"
 alias gd="$HOME/.local/bin/gd.sh"
@@ -88,8 +88,6 @@ alias exa-tree="$HOME/.local/bin/exa-tree"
 
 alias cleartemp="$HOME/.local/bin/cleartemp"
 
-alias pass=gopass
-
 # Szyfrowanie
 alias dec="$HOME/.local/bin/DecryptGPG"
 alias enc="$HOME/.local/bin/EncryptGPG"
@@ -97,6 +95,11 @@ alias DecryptGPG="$HOME/.local/bin/DecryptGPG"
 alias DecryptSSL="$HOME/.local/bin/DecryptSSL"
 alias EncryptGPG="$HOME/.local/bin/EncryptGPG"
 alias EncryptSSL="$HOME/.local/bin/EncryptSSL"
+alias p=" gopass"
+alias pass=" gopass"
+alias gopass=" gopass"
+alias otp-add="$HOME/bin/otp-add"
+alias otp="$HOME/bin/otp"
 
 # Wyszukiwanie i przeszukiwanie
 
@@ -139,50 +142,44 @@ alias rgh="rg --hidden"
 # alias dfr="df -h /"
 # alias free="free -m"
 
-#  # ROFI / dmenu
+# ROFI / dmenu
 #
-#  alias books="$HOME/bin/books"
-#  alias menu="$HOME/bin/menu"
+# alias books="$HOME/bin/books"
+# alias menu="$HOME/bin/menu"
 #
-#  # Skróty do programów
+# Skróty do programów
 #
-#  alias c="clear"
-#  alias ff="firefox"
-#  alias h="history"
-#  alias more="less"
-#  alias n="nvim"
-#  alias q=exit
-#  alias so=source
-#  alias svim="sudo vim"
-#  alias t=tmux
-#  alias ta="tmux atta"
-#  alias v="~/bin/vim.sh"
-#  alias vim="~/bin/vim.sh"
-#  alias man="$HOME/bin/man-nvim.sh"
+# alias c="clear"
+# alias ff="firefox"
+# alias h="history"
+# alias more="less"
+# alias n="nvim"
+# alias q=exit
+# alias so=source
+# alias svim="sudo vim"
+# alias t=tmux
+# alias ta="tmux atta"
+# alias v="~/bin/vim.sh"
+# alias vim="~/bin/vim.sh"
+# alias man="$HOME/bin/man-nvim.sh"
 #
-#  # Procesy
+# Procesy
 #
-#  alias k="kill"
-#  alias pg="$HOME/bin/psgrep"
+# alias k="kill"
+# alias pg="$HOME/bin/psgrep"
 #
-#  # Inne
+# Inne
 #
-#  alias detect-os="$HOME/bin/detect-os"
-#  alias fullhd="$HOME/bin/fullhd"
+# alias detect-os="$HOME/bin/detect-os"
+# alias fullhd="$HOME/bin/fullhd"
 #
 #
-#  # Szyfrowanie / hasła
+# Szyfrowanie / hasła
 #
-#  alias otp-add="$HOME/bin/otp-add"
-#  alias otp="$HOME/bin/otp"
-#  alias p=" gopass"
-#  alias pass=" gopass"
-#  alias gopass=" gopass"
-#  alias passf="$HOME/bin/passf"
-#  alias passr="$HOME/bin/passr"
+# alias passf="$HOME/bin/passf"
+# alias passr="$HOME/bin/passr"
 #
-#  alias pwgen="$HOME/bin/pwgen.sh"
-#
+# alias pwgen="$HOME/bin/pwgen.sh"
 #
 # alias cryptsetup="sudo cryptsetup"
 # alias vhdmk="$HOME/bin/vhdmk.sh"
@@ -202,17 +199,17 @@ alias rgh="rg --hidden"
 # alias gpg-list-secret-keys-short="$HOME/bin/gpg-list-secret-keys-short"
 # alias gpg-list-secret-keys="$HOME/bin/gpg-list-secret-keys"
 #
-#  # Notatki
+# Notatki
 #
-#  alias wiki="$HOME/bin/wiki"
+# alias wiki="$HOME/bin/wiki"
 #
-#  alias diary="$EDITOR -c :VimwikiMakeDiaryNote"
-#  alias diary-before="$EDITOR -c :VimwikiMakeYesterdayDiaryNote"
-#  alias diary-next="$EDITOR -c :VimwikiMakeTomorrowDiaryNote"
-#  alias diary-index="$EDITOR -c :VimwikiDiaryIndex"
-#  alias td="$EDITOR $TODO"
+# alias diary="$EDITOR -c :VimwikiMakeDiaryNote"
+# alias diary-before="$EDITOR -c :VimwikiMakeYesterdayDiaryNote"
+# alias diary-next="$EDITOR -c :VimwikiMakeTomorrowDiaryNote"
+# alias diary-index="$EDITOR -c :VimwikiDiaryIndex"
+# alias td="$EDITOR $TODO"
 #
-#  alias no='$EDITOR -c "e $HOME/notes"'
+# alias no='$EDITOR -c "e $HOME/notes"'
 #
-#  alias dg="$HOME/bin/vim-doku-grep.sh"
-#  alias d="$HOME/bin/vim-doku-fzf.sh"
+# alias dg="$HOME/bin/vim-doku-grep.sh"
+# alias d="$HOME/bin/vim-doku-fzf.sh"
