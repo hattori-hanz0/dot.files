@@ -55,6 +55,12 @@ function kopiuj() {
 
 kopiuj
 
+function instalacja_dodatkowych_pakietow_void_linux() {
+	.local/bin/pakiety-void.sh
+}
+
+instalacja_dodatkowych_pakietow_void_linux
+
 function instalacja_dodatkowego_oprogramowania() {
     mkdir -p $HOME/src
     if [ -d $HOME/src/i3ass ]; then
