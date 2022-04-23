@@ -24,16 +24,10 @@ XZ_C=5 # stopień kompresji
 # Tworzy katalogi
 mkdir -p $HOME/git
 
-# echo -n "Wykonać kopię zapasową bieżących plików konfiguracyjnych [T/n]: "
-# read odp
-#
-# case $odp in
-#     n|N)
-#         ;;
-#     *|T|t)
-#         backup
-#         ;;
-# esac
+# Tworzy katalog $HOME/tmp
+if [ ! -d ~/tmp ]; then
+    mkdir -p ~/tmp
+fi
 
 $KATALOG/backup.sh
 
@@ -56,7 +50,7 @@ function kopiuj() {
 kopiuj
 
 function instalacja_dodatkowych_pakietow_void_linux() {
-	.local/bin/pakiety-void.sh
+    .local/bin/pakiety-void.sh
 }
 
 instalacja_dodatkowych_pakietow_void_linux

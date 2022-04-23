@@ -1,5 +1,6 @@
 # katalog tymczasowy
 export TEMPDIR="$HOME/tmp"
+export TEMP="$HOME/tmp"
 # ID klucza prywatnego PGP używanego do szyfrowania
 export GPG_ID=""
 # katalog ze skryptami shell
