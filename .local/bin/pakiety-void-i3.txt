@@ -6,6 +6,7 @@ conky
 cpp-utilities
 cpupower
 cryptsetup
+ctags
 curl
 dbus
 delta
