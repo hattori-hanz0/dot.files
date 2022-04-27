@@ -29,6 +29,7 @@ fzf
 git
 github-cli
 gnupg2
+gocryptfs
 google-fonts-ttf
 gopass
 grub
@@ -60,7 +61,10 @@ noto-fonts-ttf
 noto-fonts-ttf-extra
 oath-toolkit
 openvpn
+p7z
 picom
+pigz
+pixz
 polybar
 psmisc
 pwgen
@@ -92,5 +96,6 @@ xsel
 xterm
 xtools
 xz
+yad
 zathura-pdf-mupdf
 zsh

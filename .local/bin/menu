@@ -5,6 +5,7 @@
 declare -a menu_list=(
     "Suspend"
     "Reboot"
+    "sxhkd restart"
     "Monitor Off"
     "Books"
     "Wyczyść hasło do agenta GPG"
@@ -16,11 +17,6 @@ declare -a menu_list=(
     "Wł/Wył touchpad"
     "Edit Menu"
 )
-
-    # "bspwm reload"
-    # "sxhkd restart"
-    # "Polybar toggle"
-    # "Polybar restart"
 
 menu=$(printf '%s\n' "${menu_list[@]}" | rofi -lines 28 -dmenu -i -p "Wybierz coś" "${@}")
 
