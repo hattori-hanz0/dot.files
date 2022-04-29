@@ -55,7 +55,7 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | [screenkey.sh](#screenkey.sh)       | Włącza i wyłącza podgląd naciskanych klawiszy                                          |
 | [se](#se)                           | Interaktywne wyszukiwanie plików z podglądem, po wybraniu pliku edytuje go             |
 | [sedi](#sedi)                       | Interaktywne wyszukiwanie katalogów z podglądem, po wybraniu katalogu uruchamia edytor |
-| [sefi](#sefi)                       | Interaktywne wyszukiwanie plików z podglądem, po wybraniu pliku edytuje go             |
+| [sefi](#sefi)                       | Interaktywne wyszukiwanie plików i katalogów z podglądem, po wybraniu pliku edytuje go |
 | [taruj](#taruj)                     | Tworzy archiwum `tar`, następnie usuwa zawartość katalogu                              |
 | [update](#update)                   | Skrypt wykonuje aktualizację pakietów dla różnych dystrybucji systemu Linux            |
 | [vf](#vf)                           | Interaktywne wyszukiwanie plików, po wybraniu pliku edytuje go                         |
