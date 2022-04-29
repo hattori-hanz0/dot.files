@@ -63,7 +63,7 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 
 ## 123-check.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 . ~/.local/bin/colors
