@@ -19,8 +19,8 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | colors          | Skrypt wyświetlający komunikaty w kolorach                                  |
 | dchmod          | Skrypt wyszukuje katalogów a następnie nadaje im uprawnienia                |
 | detect-os       | Skrypt wykrywający system operacyjny                                        |
-| dotfiles.sh     |                                                                             |
-| exa-tree        |                                                                             |
+| dotfiles.sh     | Przechodzi do edycji wybranego pliku konfiguracyjnego z interaktywnej listy |
+| exa-tree        | Zastępuje polecenie `tree`                                                  |
 | fchmod          | Skrypt wyszukuje pliki a następnie nadaje im uprawnienia                    |
 | ga.sh           | Wykonuje polecenie `git add` ; `git commit`                                 |
 | gd.sh           | Wykonuje polecenie `git diff`                                               |
@@ -37,7 +37,7 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | lff-atta        | Podłączenie do `lff` (TMUX)                                                 |
 | lff-kill        | Zabija sesję `lff`                                                          |
 | lff-single      | Uruchamia `lff` w trybie jednej kolumny                                     |
-| ll              |                                                                             |
+| ll              | Wyświetla listę plików za pomocą polecenia `exa`                            |
 | man-nvim.sh     |                                                                             |
 | menu            | Podręczne menu w Rofi                                                       |
 | mkcdir          | Tworzy katalog a następnie przechodzi do niego                              |
@@ -192,7 +192,7 @@ fi
 
 ## backup-dir
 
-```
+```bash
 #!/usr/bin/env bash
 
 XZ_OPT=-8
@@ -224,7 +224,7 @@ esac
 
 ## cdb
 
-```
+```bash
 #!/usr/bin/env bash
 
 KATALOG="$(cat ~/.config/bmdirs|fzf --prompt "PWD: $PWD> "|sed "s|~|$HOME|")"
@@ -233,7 +233,7 @@ KATALOG="$(cat ~/.config/bmdirs|fzf --prompt "PWD: $PWD> "|sed "s|~|$HOME|")"
 
 ## cdba
 
-```
+```bash
 #!/usr/bin/env bash
 
 echo $PWD | sed "s|$HOME|~|" >> ~/.config/bmdirs
@@ -242,7 +242,7 @@ sort -o ~/.config/bmdirs ~/.config/bmdirs
 
 ## cdbd
 
-```
+```bash
 #!/usr/bin/env bash
 
 KATALOG=$(echo $PWD | sed "s|$HOME|~|")
@@ -252,7 +252,7 @@ sed -i '/^$/d'  ~/.config/bmdirs
 
 ## cdf
 
-```
+```bash
 #!/usr/bin/env bash
 
 cd $HOME
@@ -267,7 +267,7 @@ fi
 
 ## cleartemp
 
-```
+```bash
 #!/usr/bin/env bash
 
 find -L ~/tmp -type f -mtime +7 -print -exec rm {} \;
@@ -276,7 +276,7 @@ find -L ~/tmp -type d -mtime +7 -exec rmdir --ignore-fail-on-non-empty {} \;
 
 ## clipdelete
 
-```
+```bash
 #!/bin/bash
 
 # skrypt do wyświetlania wpisów w dzienniku schowka, a następnie uruchamia
@@ -308,7 +308,7 @@ list_clips | rofi -dmenu | xargs -ICLIP clipdel -d "CLIP"
 
 ## colors
 
-```
+```bash
 #!/usr/bin/env bash
 
       NC='\033[0m'
@@ -352,7 +352,7 @@ function msg_info() {
 
 ## dchmod
 
-```
+```bash
 #!/usr/bin/env bash
 
 FD=$(which fd)
@@ -366,7 +366,7 @@ fi
 
 ## DecryptGPG
 
-```
+```bash
 #!/usr/bin/env bash
 
 if [[ $# < 1 ]]; then
@@ -384,7 +384,7 @@ fi
 
 ## DecryptSSL
 
-```
+```bash
 #!/usr/bin/env bash
 
 if [[ $# < 1 ]]; then
@@ -402,7 +402,7 @@ fi
 
 ## detect-os
 
-```
+```bash
 #!/usr/bin/env bash
 
 # Skrypt wykrywa następujące systemy:
@@ -512,7 +512,7 @@ esac
 
 ## dotfiles.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 # alias do edycji skryptu to: .df
@@ -549,7 +549,7 @@ fi
 
 ## EncryptGPG
 
-```
+```bash
 #!/usr/bin/env bash
 
 if [[ $# < 1 ]]; then
@@ -577,7 +577,7 @@ esac
 
 ## EncryptSSL
 
-```
+```bash
 #!/usr/bin/env bash
 
 if [[ $# < 1 ]]; then
@@ -595,7 +595,7 @@ fi
 
 ## exa-tree
 
-```
+```bash
 #!/usr/bin/env bash
 
 exa -l -a -h -g --git --tree
@@ -603,7 +603,7 @@ exa -l -a -h -g --git --tree
 
 ## fchmod
 
-```
+```bash
 #!/usr/bin/env bash
 
 FD=$(which fd)
@@ -617,7 +617,7 @@ fi
 
 ## ga.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 DATA=$(date +%F-%T)
@@ -629,7 +629,7 @@ git add -A && git commit -m $DATA
 
 ## gd.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 git diff
@@ -637,7 +637,7 @@ git diff
 
 ## gist-create.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 read -p "Podaj opis wklejki: "
@@ -660,7 +660,7 @@ esac
 
 ## gist-delete.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 gh gist list -L 1000 | fzf | cut -f 1 | xargs gh gist delete
@@ -668,7 +668,7 @@ gh gist list -L 1000 | fzf | cut -f 1 | xargs gh gist delete
 
 ## gist-edit.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 gh gist list -L 1000 | fzf | cut -f 1 | xargs gh gist edit
@@ -676,7 +676,7 @@ gh gist list -L 1000 | fzf | cut -f 1 | xargs gh gist edit
 
 ## gist-view.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 gh gist list -L 1000 | fzf | cut -f 1 | xargs gh gist view
@@ -684,7 +684,7 @@ gh gist list -L 1000 | fzf | cut -f 1 | xargs gh gist view
 
 ## gl.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold yellow)(%ar)%C(reset)%C(auto)%d%C(reset)%n''        %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
@@ -692,7 +692,7 @@ git log --graph --abbrev --decorate --format=format:'%C(bold green)%h%C(reset) -
 
 ## gp.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 DATA=$(date +%F-%T)
@@ -711,7 +711,7 @@ fi
 
 ## gs.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 git diff -p
@@ -721,7 +721,7 @@ git status
 
 ## last-edit
 
-```
+```bash
 #!/usr/bin/env bash
 
 find $HOME -type f -mtime -3 -mtime +4
@@ -730,7 +730,7 @@ find $HOME -type f -mtime -3
 
 ## last-edit-local
 
-```
+```bash
 #!/usr/bin/env bash
 
 find . -type f -mtime -3 -mtime +4
@@ -739,7 +739,7 @@ find . -type f -mtime -3
 
 ## lff
 
-```
+```bash
 #!/usr/bin/env bash
 
 tmux -S ~/temp/tmux.sock -f ~/.tmux-lff.conf new-session -s lff \; send-keys 'lf -config ~/.config/lf/mc-lfrc' C-m \; split-window -h \; send-keys 'lf -config ~/.config/lf/mc-lfrc' C-m \;
@@ -747,7 +747,7 @@ tmux -S ~/temp/tmux.sock -f ~/.tmux-lff.conf new-session -s lff \; send-keys 'lf
 
 ## lff-atta
 
-```
+```bash
 #!/usr/bin/env bash
 
 tmux -S ~/temp/tmux.sock atta
@@ -755,7 +755,7 @@ tmux -S ~/temp/tmux.sock atta
 
 ## lff-kill
 
-```
+```bash
 #!/usr/bin/env bash
 
 tmux -S ~/temp/tmux.sock kill-session -t lff
@@ -763,7 +763,7 @@ tmux -S ~/temp/tmux.sock kill-session -t lff
 
 ## lff-single
 
-```
+```bash
 #!/usr/bin/env bash
 
 lf -config ~/.config/lf/mc-lfrc
@@ -771,7 +771,7 @@ lf -config ~/.config/lf/mc-lfrc
 
 ## ll
 
-```
+```bash
 #!/usr/bin/env bash
 
 # lista plikow
@@ -787,7 +787,7 @@ exa $ARG -al --group-directories-first --git --header
 
 ## man-nvim.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 if [ $# -eq 0 ]; then
@@ -804,7 +804,7 @@ fi
 
 ## menu
 
-```
+```bash
 #!/usr/bin/env bash
 
 . ~/.config/vars
@@ -1001,7 +1001,7 @@ fi
 
 ## mkcdir
 
-```
+```bash
 #!/usr/bin/env bash
 
 if [ $# -eq 0 ]; then
@@ -1016,7 +1016,7 @@ cd "$KAT"
 
 ## nvim-qt-local
 
-```
+```bash
 #!/usr/bin/env bash
 
 nvim-qt --nvim $HOME/.local/nvim/bin/nvim
@@ -1024,7 +1024,7 @@ nvim-qt --nvim $HOME/.local/nvim/bin/nvim
 
 ## otp
 
-```
+```bash
 #!/usr/bin/env bash
 
 oathtool --base32 --totp "$(gopass "otp/$(find ~/.local/share/gopass/stores/root/otp/* -exec basename {} .gpg \; | fzf)")"
@@ -1032,7 +1032,7 @@ oathtool --base32 --totp "$(gopass "otp/$(find ~/.local/share/gopass/stores/root
 
 ## otp-add
 
-```
+```bash
 #!/usr/bin/env bash
 
 if [ -z $1 ]; then
@@ -1048,7 +1048,7 @@ fi
 
 ## pakiety-void.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 # Skrypt sprawdza czy są zainstalowane potrzebne pakiety
@@ -1137,7 +1137,7 @@ fi
 
 ## preview.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 # https://raw.githubusercontent.com/junegunn/fzf.vim/master/bin/preview.sh
@@ -1227,7 +1227,7 @@ eval "$CMD" 2>/dev/null | awk "{ \
 
 ## preview_dir.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 KATALOG=$(readlink -f "$1")
@@ -1236,7 +1236,7 @@ KATALOG=$(readlink -f "$1")
 
 ## pu.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 git pull
@@ -1244,7 +1244,7 @@ git pull
 
 ## push.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 git push
@@ -1252,7 +1252,7 @@ git push
 
 ## pwgen.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
  . ~/.local/bin/colors
@@ -1271,7 +1271,7 @@ fi
 
 ## rgvi
 
-```
+```bash
 #!/usr/bin/env bash
 
 . ~/.config/vars
@@ -1293,7 +1293,7 @@ fi
 
 ## scope.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 # https://raw.githubusercontent.com/ranger/ranger/master/ranger/data/scope.sh
@@ -1678,7 +1678,7 @@ exit 1
 
 ## screenkey.sh
 
-```
+```bash
 #!/usr/bin/env bash
 
 ps ax | grep /usr/bin/screenkey | grep -v grep
@@ -1692,7 +1692,7 @@ fi
 
 ## se
 
-```
+```bash
 #!/usr/bin/env bash
 
 . ~/.config/vars
@@ -1717,7 +1717,7 @@ SEARCH=$(fd . --ignore-file .gitignore | sk --exact --tac --prompt="Wyszukaj: " 
 
 ## sedi
 
-```
+```bash
 #!/usr/bin/env bash
 
 . ~/.config/vars
@@ -1740,7 +1740,7 @@ SEARCH=$(fd . -t d --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 
 ## sefi
 
-```
+```bash
 #!/usr/bin/env bash
 
 . ~/.config/vars
@@ -1763,7 +1763,7 @@ SEARCH=$(fd . -t f --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 
 ## taruj
 
-```
+```bash
 #!/usr/bin/env bash
 
 KATALOG=$(basename "$PWD")
@@ -1777,7 +1777,7 @@ find . -not -name "$PLIK_TAR.tar" -delete
 
 ## update
 
-```
+```bash
 #!/usr/bin/env bash
 
 shopt -s nocasematch
@@ -1823,7 +1823,7 @@ fi
 
 ## vf
 
-```
+```bash
 #!/usr/bin/env bash
 
 . ~/.config/vars
@@ -1833,7 +1833,7 @@ sk | xargs -r -I % $EDITOR %
 
 ## vs
 
-```
+```bash
 #!/usr/bin/env bash
 
 # export FZF_DEFAULT_COMMAND='rg --files --ignore --hidden'
