@@ -38,19 +38,19 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | lff-kill        | Zabija sesję `lff`                                                          |
 | lff-single      | Uruchamia `lff` w trybie jednej kolumny                                     |
 | ll              | Wyświetla listę plików za pomocą polecenia `exa`                            |
-| man-nvim.sh     |                                                                             |
+| man-nvim.sh     | Wyświetla strony pomocy systemowej w edytorze Neovim                        |
 | menu            | Podręczne menu w Rofi                                                       |
 | mkcdir          | Tworzy katalog a następnie przechodzi do niego                              |
-| nvim-qt-local   |                                                                             |
-| otp             |                                                                             |
-| otp-add         |                                                                             |
+| nvim-qt-local   | Uruchamia Neovim QT z lokalnej kompilacji `.local/nvim`                     |
+| otp             | Kody jednorazowe generowane za pomocą `oathtool`                            |
+| otp-add         | Dodaje nowy kod jednorazowy                                                 |
 | pakiety-void.sh | Instaluje przydatne pakiety w dystrybucji Void Linux                        |
 | preview.sh      | Skrypt wyświetlający zawartość plików                                       |
 | preview_dir.sh  | Skrypt wyświetlający zawartość katalogów                                    |
 | pu.sh           | Wykonuje polecenie `git pull`                                               |
 | push.sh         | Wykonuje polecenie `git push`                                               |
 | pwgen.sh        | Skrypt generuje bezpieczne hasła                                            |
-| rgvi            |                                                                             |
+| rgvi            | Interaktywne przeszukiwanie plików                                          |
 | scope.sh        | Skrypt podglądu plików dla `lf`                                             |
 | screenkey.sh    | Włącza i wyłącza podgląd naciskanych klawiszy                               |
 | se              |                                                                             |
