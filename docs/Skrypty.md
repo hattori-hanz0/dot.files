@@ -13,12 +13,12 @@ Skrypty znajują się w katalogu `$HOME/.local/bin`.
 | cdb             | Przechodzi do wybranego katalogu z pliku $HOME/.config/bmdirs |
 | cdba            | Dodaje bieżący katalog do pliku $HOME/.config/bmdirs          |
 | cdbd            | Usuwa bieżący katalog z pliku $HOME/.config/bmdirs            |
-| cdf             |                                                               |
-| cleartemp       |                                                               |
-| clipdelete      |                                                               |
+| cdf             | Szybkie poruszanie się po katalogach za pomocą FZF            |
+| cleartemp       | Czyszczenie katalogu z plikami tymczasowymi                   |
+| clipdelete      | Usuwanie wpisów ze schowka systemowego                        |
 | colors          |                                                               |
 | dchmod          |                                                               |
-| detect-os       |                                                               |
+| detect-os       | Skrypt wykrywający system operacyjny                          |
 | dotfiles.sh     |                                                               |
 | exa-tree        |                                                               |
 | fchmod          |                                                               |
