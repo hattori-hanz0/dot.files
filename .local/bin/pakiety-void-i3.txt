@@ -61,7 +61,7 @@ noto-fonts-ttf
 noto-fonts-ttf-extra
 oath-toolkit
 openvpn
-p7z
+p7zip
 picom
 pigz
 pixz
