@@ -17,6 +17,9 @@ alias n=nvim
 alias nvim-qt-local=$HOME/.local/bin/nvim-qt-local
 alias man="$HOME/.local/bin/man-nvim.sh"
 
+alias t=tmux
+alias ta="tmux atta"
+
 # Git
 alias g=git
 alias ga="$HOME/.local/bin/ga.sh"
