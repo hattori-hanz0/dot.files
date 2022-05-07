@@ -5,6 +5,7 @@
 .config/conky
 .config/dunst
 .config/i3
+.config/i3status-rust
 .config/lf
 .config/mc/ini
 .config/rofi
