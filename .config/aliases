@@ -19,6 +19,7 @@ alias man="$HOME/.local/bin/man-nvim.sh"
 
 alias t=tmux
 alias ta="tmux atta"
+alias b=bat
 
 # Git
 alias g=git
