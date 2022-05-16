@@ -8,8 +8,8 @@ alias sudo=$SUDO
 
 # procesy
 alias pg="ps ax|grep"
-alias k="kill"
 alias kp="$HOME/.local/bin/kp.sh"
+alias k=kp
 
 alias c=clear
 alias q=exit
