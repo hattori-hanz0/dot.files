@@ -31,6 +31,7 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | [gl.sh](#gl.sh)                     | Wykonuje polecenie `git log`                                                           |
 | [gp.sh](#gp.sh)                     | Wykonuje polecenie `git add` ; `git commit` ; `git push`                               |
 | [gs.sh](#gs.sh)                     | Wykonuje polecenie `git diff` ; `git status`                                           |
+| [kp.sh](#kp.sh)                     | Wyszukuje i zabija wybrany proces                                                      |
 | [last-edit](#last-edit)             | Wyświetla ostatnio edytowane pliki w `$HOME`                                           |
 | [last-edit-local](#last-edit-local) | Wyświetla ostatnio edytowane pliki w bieżącej lokalizacji                              |
 | [lff](#lff)                         | LF w dwóch kolumnach TMUX                                                              |
@@ -717,6 +718,15 @@ fi
 git diff -p
 
 git status
+```
+
+## kp.sh
+
+```bash
+#!/usr/bin/env bash
+
+PROCES=$(ps -hxo pid,cmd | fzf -m --height=100% --header='[kill:process]' --prompt "Wyszukaj: " | awk '{print $1}')
+[ -z $PROCES ] || kill -9 $PROCES
 ```
 
 ## last-edit

@@ -8,10 +8,18 @@ Plik wcześniej wczytują zmienne znajdujące się w pliku `.config/vars`
 
 ### Alias 'pass'
 
-Prowadzi do programu `gopass`
+Prowadzi do programu `gopass`, dodatkowa spacja pomija komendę w historii komend BASH
 
 ```
-alias pass=gopass
+alias pass=" gopass"
+```
+
+### Alias 'b'
+
+Prowadzi do programu `bat`
+
+```bash
+alias b=bat
 ```
 
 ### Alias 'sudo'
@@ -37,8 +45,22 @@ alias pg="ps ax|grep"
 Zabija proces
 
 ```
-alias k="kill"
+alias k=kp
 ```
+
+### Alias 'kp'
+
+Prowadzi do skryptu `~/.local/bin/kp`, który wyświetla listę procesów, a następnie przekazuje do
+wyszukiwarki FZF. Po wybraniu procesu jest on zabijany za pomocą polecenia `kill`.
+
+```bash
+#!/usr/bin/env bash
+
+PROCES=$(ps -hxo pid,cmd | fzf -m --height=100% --header='[kill:process]' --prompt "Wyszukaj: " | awk '{print $1}')
+[ -z $PROCES ] || kill -9 $PROCES
+```
+
+## Inne
 
 ### Alias 'c'
 
