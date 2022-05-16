@@ -4,7 +4,7 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 
 | Skrypt                              | Opis                                                                                    |
 | ----------------------------------- | --------------------------------------------------------------------------------------- |
-| [123-check.sh](#123-check.sh)       | Sprawdza czy wymagane programy są dostępne w systemie                                   |
+| [123-check.sh](#123-checksh)        | Sprawdza czy wymagane programy są dostępne w systemie                                   |
 | [backup-dir](#backup-dir)           | Tworzy archiwum katalogu w którym został uruchomiony skrypt                             |
 | [DecryptGPG](#DecryptGPG)           | Deszyfrowanie plików za pmocą GPG                                                       |
 | [DecryptSSL](#DecryptSSL)           | Deszyfrowanie plików za pomocą OpenSSL                                                  |
@@ -19,19 +19,19 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | [colors](#colors)                   | Skrypt wyświetlający komunikaty w kolorach                                              |
 | [dchmod](#dchmod)                   | Skrypt wyszukuje katalogów a następnie nadaje im uprawnienia                            |
 | [detect-os](#detect-os)             | Skrypt wykrywający system operacyjny                                                    |
-| [dotfiles.sh](#dotfiles.sh)         | Przechodzi do edycji wybranego pliku konfiguracyjnego z interaktywnej listy             |
+| [dotfiles.sh](#dotfilessh)          | Przechodzi do edycji wybranego pliku konfiguracyjnego z interaktywnej listy             |
 | [exa-tree](#exa-tree)               | Zastępuje polecenie `tree`                                                              |
 | [fchmod](#fchmod)                   | Skrypt wyszukuje pliki a następnie nadaje im uprawnienia                                |
-| [ga.sh](#ga.sh)                     | Wykonuje polecenie `git add` ; `git commit`                                             |
-| [gd.sh](#gd.sh)                     | Wykonuje polecenie `git diff`                                                           |
-| [gist-create.sh](#gist-create.sh)   | Tworzy wklejkę na gist.github.com                                                       |
-| [gist-delete.sh](#gist-delete.sh)   | Usuwa wybraną wklejkę                                                                   |
-| [gist-edit.sh](#gist-edit.sh)       | Edytuje wybraną wklejkę                                                                 |
-| [gist-view.sh](#gist-view.sh)       | Pobiera wybraną wklejkę do wglądu                                                       |
-| [gl.sh](#gl.sh)                     | Wykonuje polecenie `git log`                                                            |
-| [gp.sh](#gp.sh)                     | Wykonuje polecenie `git add` ; `git commit` ; `git push`                                |
-| [gs.sh](#gs.sh)                     | Wykonuje polecenie `git diff` ; `git status`                                            |
-| [kp.sh](#kp.sh)                     | Wyszukuje i zabija wybrany proces                                                       |
+| [ga.sh](#gash)                      | Wykonuje polecenie `git add` ; `git commit`                                             |
+| [gd.sh](#gdsh)                      | Wykonuje polecenie `git diff`                                                           |
+| [gist-create.sh](#gist-createsh)    | Tworzy wklejkę na gist.github.com                                                       |
+| [gist-delete.sh](#gist-deletesh)    | Usuwa wybraną wklejkę                                                                   |
+| [gist-edit.sh](#gist-editsh)        | Edytuje wybraną wklejkę                                                                 |
+| [gist-view.sh](#gist-viewsh)        | Pobiera wybraną wklejkę do wglądu                                                       |
+| [gl.sh](#glsh)                      | Wykonuje polecenie `git log`                                                            |
+| [gp.sh](#gpsh)                      | Wykonuje polecenie `git add` ; `git commit` ; `git push`                                |
+| [gs.sh](#gssh)                      | Wykonuje polecenie `git diff` ; `git status`                                            |
+| [kp.sh](#kpsh)                      | Wyszukuje i zabija wybrany proces                                                       |
 | [last-edit](#last-edit)             | Wyświetla ostatnio edytowane pliki w `$HOME`                                            |
 | [last-edit-local](#last-edit-local) | Wyświetla ostatnio edytowane pliki w bieżącej lokalizacji                               |
 | [lff](#lff)                         | LF w dwóch kolumnach TMUX                                                               |
@@ -39,22 +39,22 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | [lff-kill](#lff-kill)               | Zabija sesję `lff`                                                                      |
 | [lff-single](#lff-single)           | Uruchamia `lff` w trybie jednej kolumny                                                 |
 | [ll](#ll)                           | Wyświetla listę plików za pomocą polecenia `exa`                                        |
-| [lm.sh](#lm.sh)                     | Wyświetla listę plików za pomocą polecenia `exa` posortowaną po dacie modyfikacji pliku |
-| [man-nvim.sh](#man-nvim.sh)         | Wyświetla strony pomocy systemowej w edytorze Neovim                                    |
+| [lm.sh](#lmsh)                      | Wyświetla listę plików za pomocą polecenia `exa` posortowaną po dacie modyfikacji pliku |
+| [man-nvim.sh](#man-nvimsh)          | Wyświetla strony pomocy systemowej w edytorze Neovim                                    |
 | [menu](#menu)                       | Podręczne menu w Rofi                                                                   |
 | [mkcdir](#mkcdir)                   | Tworzy katalog a następnie przechodzi do niego                                          |
 | [nvim-qt-local](#nvim-qt-local)     | Uruchamia Neovim QT z lokalnej kompilacji `.local/nvim`                                 |
 | [otp](#otp)                         | Kody jednorazowe generowane za pomocą `oathtool`                                        |
 | [otp-add](#otp-add)                 | Dodaje nowy kod jednorazowy                                                             |
-| [pakiety-void.sh](#pakiety-void.sh) | Instaluje przydatne pakiety w dystrybucji Void Linux                                    |
-| [preview.sh](#preview.sh)           | Skrypt wyświetlający zawartość plików                                                   |
-| [preview_dir.sh](#preview_dir.sh)   | Skrypt wyświetlający zawartość katalogów                                                |
-| [pu.sh](#pu.sh)                     | Wykonuje polecenie `git pull`                                                           |
-| [push.sh](#push.sh)                 | Wykonuje polecenie `git push`                                                           |
-| [pwgen.sh](#pwgen.sh)               | Skrypt generuje bezpieczne hasła                                                        |
+| [pakiety-void.sh](#pakiety-voidsh)  | Instaluje przydatne pakiety w dystrybucji Void Linux                                    |
+| [preview.sh](#previewsh)            | Skrypt wyświetlający zawartość plików                                                   |
+| [preview_dir.sh](#preview_dirsh)    | Skrypt wyświetlający zawartość katalogów                                                |
+| [pu.sh](#push)                      | Wykonuje polecenie `git pull`                                                           |
+| [push.sh](#pushsh)                  | Wykonuje polecenie `git push`                                                           |
+| [pwgen.sh](#pwgensh)                | Skrypt generuje bezpieczne hasła                                                        |
 | [rgvi](#rgvi)                       | Interaktywne przeszukiwanie plików                                                      |
-| [scope.sh](#scope.sh)               | Skrypt podglądu plików dla `lf`                                                         |
-| [screenkey.sh](#screenkey.sh)       | Włącza i wyłącza podgląd naciskanych klawiszy                                           |
+| [scope.sh](#scopesh)                | Skrypt podglądu plików dla `lf`                                                         |
+| [screenkey.sh](#screenkeysh)        | Włącza i wyłącza podgląd naciskanych klawiszy                                           |
 | [se](#se)                           | Interaktywne wyszukiwanie plików z podglądem, po wybraniu pliku edytuje go              |
 | [sedi](#sedi)                       | Interaktywne wyszukiwanie katalogów z podglądem, po wybraniu katalogu uruchamia edytor  |
 | [sefi](#sefi)                       | Interaktywne wyszukiwanie plików i katalogów z podglądem, po wybraniu pliku edytuje go  |
