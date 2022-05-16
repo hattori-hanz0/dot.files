@@ -122,6 +122,8 @@ alias last-edit-local="$HOME/.local/bin/last-edit-local"
 alias fdh="fd --hidden"
 alias rgh="rg --hidden"
 
+alias ff="$HOME/local/bin/ff.sh"
+
 # systemctl, zarządzanie energią
 
 # alias suspend="sudo systemctl suspend"

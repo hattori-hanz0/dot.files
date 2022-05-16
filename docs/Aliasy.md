@@ -62,6 +62,24 @@ PROCES=$(ps -hxo pid,cmd | fzf -m --height=100% --header='[kill:process]' --prom
 
 ## Inne
 
+### Alias 'ff'
+
+Prowadzi do skryptu `$HOME/.local/bin/ff.sh`
+
+```
+alias ff="$HOME/.local/bin/ff.sh"
+```
+
+Skrypt
+
+```bash
+#!/usr/bin/env bash
+
+[ $# -eq 0 ] && echo "Podaj kolumnę do wyświetlenia." && exit
+
+awk "{ print \$$1 }"
+```
+
 ### Alias 'c'
 
 Czyści ekran

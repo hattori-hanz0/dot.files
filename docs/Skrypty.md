@@ -6,10 +6,6 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | ----------------------------------- | --------------------------------------------------------------------------------------- |
 | [123-check.sh](#123-checksh)        | Sprawdza czy wymagane programy są dostępne w systemie                                   |
 | [backup-dir](#backup-dir)           | Tworzy archiwum katalogu w którym został uruchomiony skrypt                             |
-| [DecryptGPG](#DecryptGPG)           | Deszyfrowanie plików za pmocą GPG                                                       |
-| [DecryptSSL](#DecryptSSL)           | Deszyfrowanie plików za pomocą OpenSSL                                                  |
-| [EncryptGPG](#EncryptGPG)           | Szyfrowanie plików za pomocą GPG                                                        |
-| [EncryptSSL](#EncryptSSL)           | Szyfrowanie plików za pomocą OpenSSL                                                    |
 | [cdb](#cdb)                         | Przechodzi do wybranego katalogu z pliku `$HOME/.config/bmdirs`                         |
 | [cdba](#cdba)                       | Dodaje bieżący katalog do pliku `$HOME/.config/bmdirs`                                  |
 | [cdbd](#cdba)                       | Usuwa bieżący katalog z pliku `$HOME/.config/bmdirs`                                    |
@@ -18,10 +14,15 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | [clipdelete](#clipdelete)           | Usuwanie wpisów ze schowka systemowego                                                  |
 | [colors](#colors)                   | Skrypt wyświetlający komunikaty w kolorach                                              |
 | [dchmod](#dchmod)                   | Skrypt wyszukuje katalogów a następnie nadaje im uprawnienia                            |
+| [DecryptGPG](#DecryptGPG)           | Deszyfrowanie plików za pmocą GPG                                                       |
+| [DecryptSSL](#DecryptSSL)           | Deszyfrowanie plików za pomocą OpenSSL                                                  |
 | [detect-os](#detect-os)             | Skrypt wykrywający system operacyjny                                                    |
 | [dotfiles.sh](#dotfilessh)          | Przechodzi do edycji wybranego pliku konfiguracyjnego z interaktywnej listy             |
+| [EncryptGPG](#EncryptGPG)           | Szyfrowanie plików za pomocą GPG                                                        |
+| [EncryptSSL](#EncryptSSL)           | Szyfrowanie plików za pomocą OpenSSL                                                    |
 | [exa-tree](#exa-tree)               | Zastępuje polecenie `tree`                                                              |
 | [fchmod](#fchmod)                   | Skrypt wyszukuje pliki a następnie nadaje im uprawnienia                                |
+| [ff.sh](#ffsh)                      | Wyświetla podaną jako argument kolumnę z przekazanego wyjścia                           |
 | [ga.sh](#gash)                      | Wykonuje polecenie `git add` ; `git commit`                                             |
 | [gd.sh](#gdsh)                      | Wykonuje polecenie `git diff`                                                           |
 | [gist-create.sh](#gist-createsh)    | Tworzy wklejkę na gist.github.com                                                       |
@@ -32,20 +33,20 @@ Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 | [gp.sh](#gpsh)                      | Wykonuje polecenie `git add` ; `git commit` ; `git push`                                |
 | [gs.sh](#gssh)                      | Wykonuje polecenie `git diff` ; `git status`                                            |
 | [kp.sh](#kpsh)                      | Wyszukuje i zabija wybrany proces                                                       |
-| [last-edit](#last-edit)             | Wyświetla ostatnio edytowane pliki w `$HOME`                                            |
 | [last-edit-local](#last-edit-local) | Wyświetla ostatnio edytowane pliki w bieżącej lokalizacji                               |
-| [lff](#lff)                         | LF w dwóch kolumnach TMUX                                                               |
+| [last-edit](#last-edit)             | Wyświetla ostatnio edytowane pliki w `$HOME`                                            |
 | [lff-atta](#lff-atta)               | Podłączenie do `lff` (TMUX)                                                             |
 | [lff-kill](#lff-kill)               | Zabija sesję `lff`                                                                      |
 | [lff-single](#lff-single)           | Uruchamia `lff` w trybie jednej kolumny                                                 |
+| [lff](#lff)                         | LF w dwóch kolumnach TMUX                                                               |
 | [ll](#ll)                           | Wyświetla listę plików za pomocą polecenia `exa`                                        |
 | [lm.sh](#lmsh)                      | Wyświetla listę plików za pomocą polecenia `exa` posortowaną po dacie modyfikacji pliku |
 | [man-nvim.sh](#man-nvimsh)          | Wyświetla strony pomocy systemowej w edytorze Neovim                                    |
 | [menu](#menu)                       | Podręczne menu w Rofi                                                                   |
 | [mkcdir](#mkcdir)                   | Tworzy katalog a następnie przechodzi do niego                                          |
 | [nvim-qt-local](#nvim-qt-local)     | Uruchamia Neovim QT z lokalnej kompilacji `.local/nvim`                                 |
-| [otp](#otp)                         | Kody jednorazowe generowane za pomocą `oathtool`                                        |
 | [otp-add](#otp-add)                 | Dodaje nowy kod jednorazowy                                                             |
+| [otp](#otp)                         | Kody jednorazowe generowane za pomocą `oathtool`                                        |
 | [pakiety-void.sh](#pakiety-voidsh)  | Instaluje przydatne pakiety w dystrybucji Void Linux                                    |
 | [preview.sh](#previewsh)            | Skrypt wyświetlający zawartość plików                                                   |
 | [preview_dir.sh](#preview_dirsh)    | Skrypt wyświetlający zawartość katalogów                                                |
@@ -615,6 +616,24 @@ if [ ! -z $FD ]; then
 else
     find . -type f -exec chmod 644 {} \;
 fi
+```
+
+## ff.sh
+
+Wyświetla podaną jako argument kolumnę z przekazanego wyjścia.
+
+```bash
+ls -al | ff 8
+```
+
+Skrypt
+
+```bash
+#!/usr/bin/env bash
+
+[ $# -eq 0 ] && echo "Podaj kolumnę do wyświetlenia." && exit
+
+awk "{ print \$$1 }"
 ```
 
 ## ga.sh
