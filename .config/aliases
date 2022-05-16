@@ -81,6 +81,7 @@ alias fchmod="$HOME/.local/bin/fchmod"
 
 alias ll="$HOME/.local/bin/ll"
 alias l="ll"
+alias lm="$HOME/.local/bin/lm.sh"  # exa pliki posortowane po dacie modyfikacji
 alias f="ls -A|wc -l"
 
 alias md="mkcdir"

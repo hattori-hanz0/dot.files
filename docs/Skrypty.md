@@ -2,65 +2,66 @@
 
 Skrypty znajdują się w katalogu `$HOME/.local/bin`.
 
-| Skrypt                              | Opis                                                                                   |
-| ----------------------------------- | -------------------------------------------------------------------------------------- |
-| [123-check.sh](#123-check.sh)       | Sprawdza czy wymagane programy są dostępne w systemie                                  |
-| [backup-dir](#backup-dir)           | Tworzy archiwum katalogu w którym został uruchomiony skrypt                            |
-| [DecryptGPG](#DecryptGPG)           | Deszyfrowanie plików za pmocą GPG                                                      |
-| [DecryptSSL](#DecryptSSL)           | Deszyfrowanie plików za pomocą OpenSSL                                                 |
-| [EncryptGPG](#EncryptGPG)           | Szyfrowanie plików za pomocą GPG                                                       |
-| [EncryptSSL](#EncryptSSL)           | Szyfrowanie plików za pomocą OpenSSL                                                   |
-| [cdb](#cdb)                         | Przechodzi do wybranego katalogu z pliku `$HOME/.config/bmdirs`                        |
-| [cdba](#cdba)                       | Dodaje bieżący katalog do pliku `$HOME/.config/bmdirs`                                 |
-| [cdbd](#cdba)                       | Usuwa bieżący katalog z pliku `$HOME/.config/bmdirs`                                   |
-| [cdf](#cdf)                         | Szybkie poruszanie się po katalogach za pomocą FZF                                     |
-| [cleartemp](#cleartemp)             | Czyszczenie katalogu z plikami tymczasowymi                                            |
-| [clipdelete](#clipdelete)           | Usuwanie wpisów ze schowka systemowego                                                 |
-| [colors](#colors)                   | Skrypt wyświetlający komunikaty w kolorach                                             |
-| [dchmod](#dchmod)                   | Skrypt wyszukuje katalogów a następnie nadaje im uprawnienia                           |
-| [detect-os](#detect-os)             | Skrypt wykrywający system operacyjny                                                   |
-| [dotfiles.sh](#dotfiles.sh)         | Przechodzi do edycji wybranego pliku konfiguracyjnego z interaktywnej listy            |
-| [exa-tree](#exa-tree)               | Zastępuje polecenie `tree`                                                             |
-| [fchmod](#fchmod)                   | Skrypt wyszukuje pliki a następnie nadaje im uprawnienia                               |
-| [ga.sh](#ga.sh)                     | Wykonuje polecenie `git add` ; `git commit`                                            |
-| [gd.sh](#gd.sh)                     | Wykonuje polecenie `git diff`                                                          |
-| [gist-create.sh](#gist-create.sh)   | Tworzy wklejkę na gist.github.com                                                      |
-| [gist-delete.sh](#gist-delete.sh)   | Usuwa wybraną wklejkę                                                                  |
-| [gist-edit.sh](#gist-edit.sh)       | Edytuje wybraną wklejkę                                                                |
-| [gist-view.sh](#gist-view.sh)       | Pobiera wybraną wklejkę do wglądu                                                      |
-| [gl.sh](#gl.sh)                     | Wykonuje polecenie `git log`                                                           |
-| [gp.sh](#gp.sh)                     | Wykonuje polecenie `git add` ; `git commit` ; `git push`                               |
-| [gs.sh](#gs.sh)                     | Wykonuje polecenie `git diff` ; `git status`                                           |
-| [kp.sh](#kp.sh)                     | Wyszukuje i zabija wybrany proces                                                      |
-| [last-edit](#last-edit)             | Wyświetla ostatnio edytowane pliki w `$HOME`                                           |
-| [last-edit-local](#last-edit-local) | Wyświetla ostatnio edytowane pliki w bieżącej lokalizacji                              |
-| [lff](#lff)                         | LF w dwóch kolumnach TMUX                                                              |
-| [lff-atta](#lff-atta)               | Podłączenie do `lff` (TMUX)                                                            |
-| [lff-kill](#lff-kill)               | Zabija sesję `lff`                                                                     |
-| [lff-single](#lff-single)           | Uruchamia `lff` w trybie jednej kolumny                                                |
-| [ll](#ll)                           | Wyświetla listę plików za pomocą polecenia `exa`                                       |
-| [man-nvim.sh](#man-nvim.sh)         | Wyświetla strony pomocy systemowej w edytorze Neovim                                   |
-| [menu](#menu)                       | Podręczne menu w Rofi                                                                  |
-| [mkcdir](#mkcdir)                   | Tworzy katalog a następnie przechodzi do niego                                         |
-| [nvim-qt-local](#nvim-qt-local)     | Uruchamia Neovim QT z lokalnej kompilacji `.local/nvim`                                |
-| [otp](#otp)                         | Kody jednorazowe generowane za pomocą `oathtool`                                       |
-| [otp-add](#otp-add)                 | Dodaje nowy kod jednorazowy                                                            |
-| [pakiety-void.sh](#pakiety-void.sh) | Instaluje przydatne pakiety w dystrybucji Void Linux                                   |
-| [preview.sh](#preview.sh)           | Skrypt wyświetlający zawartość plików                                                  |
-| [preview_dir.sh](#preview_dir.sh)   | Skrypt wyświetlający zawartość katalogów                                               |
-| [pu.sh](#pu.sh)                     | Wykonuje polecenie `git pull`                                                          |
-| [push.sh](#push.sh)                 | Wykonuje polecenie `git push`                                                          |
-| [pwgen.sh](#pwgen.sh)               | Skrypt generuje bezpieczne hasła                                                       |
-| [rgvi](#rgvi)                       | Interaktywne przeszukiwanie plików                                                     |
-| [scope.sh](#scope.sh)               | Skrypt podglądu plików dla `lf`                                                        |
-| [screenkey.sh](#screenkey.sh)       | Włącza i wyłącza podgląd naciskanych klawiszy                                          |
-| [se](#se)                           | Interaktywne wyszukiwanie plików z podglądem, po wybraniu pliku edytuje go             |
-| [sedi](#sedi)                       | Interaktywne wyszukiwanie katalogów z podglądem, po wybraniu katalogu uruchamia edytor |
-| [sefi](#sefi)                       | Interaktywne wyszukiwanie plików i katalogów z podglądem, po wybraniu pliku edytuje go |
-| [taruj](#taruj)                     | Tworzy archiwum `tar`, następnie usuwa zawartość katalogu                              |
-| [update](#update)                   | Skrypt wykonuje aktualizację pakietów dla różnych dystrybucji systemu Linux            |
-| [vf](#vf)                           | Interaktywne wyszukiwanie plików, po wybraniu pliku edytuje go                         |
-| [vs](#vs)                           | Interaktywne wyszukiwanie plików z podglądem, po wybraniu pliku edytuje go             |
+| Skrypt                              | Opis                                                                                    |
+| ----------------------------------- | --------------------------------------------------------------------------------------- |
+| [123-check.sh](#123-check.sh)       | Sprawdza czy wymagane programy są dostępne w systemie                                   |
+| [backup-dir](#backup-dir)           | Tworzy archiwum katalogu w którym został uruchomiony skrypt                             |
+| [DecryptGPG](#DecryptGPG)           | Deszyfrowanie plików za pmocą GPG                                                       |
+| [DecryptSSL](#DecryptSSL)           | Deszyfrowanie plików za pomocą OpenSSL                                                  |
+| [EncryptGPG](#EncryptGPG)           | Szyfrowanie plików za pomocą GPG                                                        |
+| [EncryptSSL](#EncryptSSL)           | Szyfrowanie plików za pomocą OpenSSL                                                    |
+| [cdb](#cdb)                         | Przechodzi do wybranego katalogu z pliku `$HOME/.config/bmdirs`                         |
+| [cdba](#cdba)                       | Dodaje bieżący katalog do pliku `$HOME/.config/bmdirs`                                  |
+| [cdbd](#cdba)                       | Usuwa bieżący katalog z pliku `$HOME/.config/bmdirs`                                    |
+| [cdf](#cdf)                         | Szybkie poruszanie się po katalogach za pomocą FZF                                      |
+| [cleartemp](#cleartemp)             | Czyszczenie katalogu z plikami tymczasowymi                                             |
+| [clipdelete](#clipdelete)           | Usuwanie wpisów ze schowka systemowego                                                  |
+| [colors](#colors)                   | Skrypt wyświetlający komunikaty w kolorach                                              |
+| [dchmod](#dchmod)                   | Skrypt wyszukuje katalogów a następnie nadaje im uprawnienia                            |
+| [detect-os](#detect-os)             | Skrypt wykrywający system operacyjny                                                    |
+| [dotfiles.sh](#dotfiles.sh)         | Przechodzi do edycji wybranego pliku konfiguracyjnego z interaktywnej listy             |
+| [exa-tree](#exa-tree)               | Zastępuje polecenie `tree`                                                              |
+| [fchmod](#fchmod)                   | Skrypt wyszukuje pliki a następnie nadaje im uprawnienia                                |
+| [ga.sh](#ga.sh)                     | Wykonuje polecenie `git add` ; `git commit`                                             |
+| [gd.sh](#gd.sh)                     | Wykonuje polecenie `git diff`                                                           |
+| [gist-create.sh](#gist-create.sh)   | Tworzy wklejkę na gist.github.com                                                       |
+| [gist-delete.sh](#gist-delete.sh)   | Usuwa wybraną wklejkę                                                                   |
+| [gist-edit.sh](#gist-edit.sh)       | Edytuje wybraną wklejkę                                                                 |
+| [gist-view.sh](#gist-view.sh)       | Pobiera wybraną wklejkę do wglądu                                                       |
+| [gl.sh](#gl.sh)                     | Wykonuje polecenie `git log`                                                            |
+| [gp.sh](#gp.sh)                     | Wykonuje polecenie `git add` ; `git commit` ; `git push`                                |
+| [gs.sh](#gs.sh)                     | Wykonuje polecenie `git diff` ; `git status`                                            |
+| [kp.sh](#kp.sh)                     | Wyszukuje i zabija wybrany proces                                                       |
+| [last-edit](#last-edit)             | Wyświetla ostatnio edytowane pliki w `$HOME`                                            |
+| [last-edit-local](#last-edit-local) | Wyświetla ostatnio edytowane pliki w bieżącej lokalizacji                               |
+| [lff](#lff)                         | LF w dwóch kolumnach TMUX                                                               |
+| [lff-atta](#lff-atta)               | Podłączenie do `lff` (TMUX)                                                             |
+| [lff-kill](#lff-kill)               | Zabija sesję `lff`                                                                      |
+| [lff-single](#lff-single)           | Uruchamia `lff` w trybie jednej kolumny                                                 |
+| [ll](#ll)                           | Wyświetla listę plików za pomocą polecenia `exa`                                        |
+| [lm.sh](#lm.sh)                     | Wyświetla listę plików za pomocą polecenia `exa` posortowaną po dacie modyfikacji pliku |
+| [man-nvim.sh](#man-nvim.sh)         | Wyświetla strony pomocy systemowej w edytorze Neovim                                    |
+| [menu](#menu)                       | Podręczne menu w Rofi                                                                   |
+| [mkcdir](#mkcdir)                   | Tworzy katalog a następnie przechodzi do niego                                          |
+| [nvim-qt-local](#nvim-qt-local)     | Uruchamia Neovim QT z lokalnej kompilacji `.local/nvim`                                 |
+| [otp](#otp)                         | Kody jednorazowe generowane za pomocą `oathtool`                                        |
+| [otp-add](#otp-add)                 | Dodaje nowy kod jednorazowy                                                             |
+| [pakiety-void.sh](#pakiety-void.sh) | Instaluje przydatne pakiety w dystrybucji Void Linux                                    |
+| [preview.sh](#preview.sh)           | Skrypt wyświetlający zawartość plików                                                   |
+| [preview_dir.sh](#preview_dir.sh)   | Skrypt wyświetlający zawartość katalogów                                                |
+| [pu.sh](#pu.sh)                     | Wykonuje polecenie `git pull`                                                           |
+| [push.sh](#push.sh)                 | Wykonuje polecenie `git push`                                                           |
+| [pwgen.sh](#pwgen.sh)               | Skrypt generuje bezpieczne hasła                                                        |
+| [rgvi](#rgvi)                       | Interaktywne przeszukiwanie plików                                                      |
+| [scope.sh](#scope.sh)               | Skrypt podglądu plików dla `lf`                                                         |
+| [screenkey.sh](#screenkey.sh)       | Włącza i wyłącza podgląd naciskanych klawiszy                                           |
+| [se](#se)                           | Interaktywne wyszukiwanie plików z podglądem, po wybraniu pliku edytuje go              |
+| [sedi](#sedi)                       | Interaktywne wyszukiwanie katalogów z podglądem, po wybraniu katalogu uruchamia edytor  |
+| [sefi](#sefi)                       | Interaktywne wyszukiwanie plików i katalogów z podglądem, po wybraniu pliku edytuje go  |
+| [taruj](#taruj)                     | Tworzy archiwum `tar`, następnie usuwa zawartość katalogu                               |
+| [update](#update)                   | Skrypt wykonuje aktualizację pakietów dla różnych dystrybucji systemu Linux             |
+| [vf](#vf)                           | Interaktywne wyszukiwanie plików, po wybraniu pliku edytuje go                          |
+| [vs](#vs)                           | Interaktywne wyszukiwanie plików z podglądem, po wybraniu pliku edytuje go              |
 
 ## 123-check.sh
 
@@ -793,6 +794,14 @@ else
 fi
 
 exa $ARG -al --group-directories-first --git --header
+```
+
+## lm.sh
+
+```bash
+#!/usr/bin/env bash
+
+exa -al -s=modified
 ```
 
 ## man-nvim.sh

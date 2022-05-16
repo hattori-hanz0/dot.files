@@ -460,6 +460,14 @@ alias ll="$HOME/.local/bin/ll"
 alias l="ll"
 ```
 
+### Alias 'lm'
+
+Wyświetla pliki posortowane po dacie modyfikacji
+
+```bash
+alias lm="$HOME/.local/bin/lm.sh" # exa pliki posortowane po dacie modyfikacji
+```
+
 ### Alias 'f'
 
 ```
