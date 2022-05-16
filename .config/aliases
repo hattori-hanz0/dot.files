@@ -67,6 +67,7 @@ alias cdbe="$EDITOR ~/.config/bmdirs"
 alias cde="$EDITOR ~/.config/bmdirs"
 alias cdf="source $HOME/.local/bin/cdf"
 alias path="echo $PATH|tr \":\" \"\n\""
+alias cpa="pwd|tr -d '\n'|xclip -sel clip"
 
 function cd() {
     builtin cd "$@" && cd_func;

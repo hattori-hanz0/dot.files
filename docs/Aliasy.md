@@ -426,6 +426,14 @@ alias cde="$EDITOR ~/.config/bmdirs"
 alias cdbe="$EDITOR ~/.config/bmdirs"
 ```
 
+### Alias 'cpa'
+
+Kopiuje bieżącą lokalizację do schowka systemowego
+
+```bash
+alias cpa="pwd|tr -d '\n'|xclip -sel clip"
+```
+
 ### Alias 'cdf'
 
 ```
