@@ -9,6 +9,7 @@ alias sudo=$SUDO
 # procesy
 alias pg="ps ax|grep"
 alias k="kill"
+alias kp="$HOME/.local/bin/kp.sh"
 
 alias c=clear
 alias q=exit
@@ -166,11 +167,6 @@ alias rgh="rg --hidden"
 # alias v="~/bin/vim.sh"
 # alias vim="~/bin/vim.sh"
 # alias man="$HOME/bin/man-nvim.sh"
-#
-# Procesy
-#
-# alias k="kill"
-# alias pg="$HOME/bin/psgrep"
 #
 # Inne
 #
