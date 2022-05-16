@@ -6,7 +6,7 @@ BAT=$(which bat)
 PREVIEW_SH=$(which preview.sh)
 if [ ! -z $BAT ]; then
     PREVIEW="bat --style=numbers --color=always {}"
- elif [ ! -z $PREVIEW_SH ]; then
+elif [ ! -z $PREVIEW_SH ]; then
     PREVIEW="preview.sh {}"
 else
     echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"

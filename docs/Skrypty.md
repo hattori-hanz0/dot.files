@@ -782,6 +782,8 @@ lf -config ~/.config/lf/mc-lfrc
 
 ## ll
 
+Wyświetla listę plików za pomocą `exa` + kilka dodatkowych parametrów.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -798,6 +800,8 @@ exa $ARG -al --group-directories-first --git --header
 
 ## lm.sh
 
+Wyświetla listę plików za pomocą `exa`, sortując po dacie modyfikacji.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -805,6 +809,8 @@ exa -al -s=modified
 ```
 
 ## man-nvim.sh
+
+Uruchamia stronę pomocy systemowej w Neovim ze specjalną konfiguracją.
 
 ```bash
 #!/usr/bin/env bash
@@ -822,6 +828,8 @@ fi
 ```
 
 ## menu
+
+Menu z przydatnymi funkcjami uruchomione w `rofi`.
 
 ```bash
 #!/usr/bin/env bash
@@ -1020,6 +1028,16 @@ fi
 
 ## mkcdir
 
+Tworzy katalog, a następnie przechodzi do niego. Skrypt musi być uruchomiony z aliasu `mkcdir`.
+
+Alias
+
+```bash
+alias mkcdir="source $HOME/.local/bin/mkcdir $1"
+```
+
+Skrypt
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1035,6 +1053,8 @@ cd "$KAT"
 
 ## nvim-qt-local
 
+Uruchamia Neovim QT wraz ze skompilowaną wersją Neovim.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1043,6 +1063,8 @@ nvim-qt --nvim $HOME/.local/nvim/bin/nvim
 
 ## otp
 
+Wyświetla hasło jednorazowe dla wybranego wpisu `gopass`.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1050,6 +1072,8 @@ oathtool --base32 --totp "$(gopass "otp/$(find ~/.local/share/gopass/stores/root
 ```
 
 ## otp-add
+
+Dodaje nowy wpis w `gopass`.
 
 ```bash
 #!/usr/bin/env bash
@@ -1066,6 +1090,8 @@ fi
 ```
 
 ## pakiety-void.sh
+
+Skrypt instaluje pakiety zawarte w pliku `$KATALOG/pakiety-void-i3.txt`.
 
 ```bash
 #!/usr/bin/env bash
@@ -1155,6 +1181,8 @@ fi
 ```
 
 ## preview.sh
+
+Skrypt pobrany ze strony: https://raw.githubusercontent.com/junegunn/fzf.vim/master/bin/preview.sh
 
 ```bash
 #!/usr/bin/env bash
@@ -1246,6 +1274,8 @@ eval "$CMD" 2>/dev/null | awk "{ \
 
 ## preview_dir.sh
 
+Skrypt wyświetla zawartość katalogu.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1255,6 +1285,8 @@ KATALOG=$(readlink -f "$1")
 
 ## pu.sh
 
+Uruchamia polecenie `git pull`
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1263,6 +1295,8 @@ git pull
 
 ## push.sh
 
+Uruchamia polecenie `git push`
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1270,6 +1304,9 @@ git push
 ```
 
 ## pwgen.sh
+
+Skrypt generuje bezpieczne hasła, jeśli skrypt jest uruchomiony w środowisku graficznym, hasło
+zostanie skopiowane do schowka systemowego.
 
 ```bash
 #!/usr/bin/env bash
@@ -1289,6 +1326,9 @@ fi
 ```
 
 ## rgvi
+
+Skrypt przeszukuje pliki za pomocą ripgrep, po wybraniu uruchamia standardowy edytor, jeśli jest nim
+Vim lub Neovim, plik zostanie otworzony w wybranej linii.
 
 ```bash
 #!/usr/bin/env bash
@@ -1311,6 +1351,10 @@ fi
 ```
 
 ## scope.sh
+
+Skrypt pobrany ze strony https://raw.githubusercontent.com/ranger/ranger/master/ranger/data/scope.sh
+
+Skrypt podglądu plików dla `lf`
 
 ```bash
 #!/usr/bin/env bash
@@ -1697,6 +1741,8 @@ exit 1
 
 ## screenkey.sh
 
+Skrypt włącza / wyłącza wyświetlanie naciskanych klawiszy.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1710,6 +1756,9 @@ fi
 ```
 
 ## se
+
+Wyszukuje pliki i katalogi w bieżącej lokalizacji po wybraniu pliku lub katalogu zostanie on otworzony
+w standardowym edytorze tekstu.
 
 ```bash
 #!/usr/bin/env bash
@@ -1736,6 +1785,9 @@ SEARCH=$(fd . --ignore-file .gitignore | sk --exact --tac --prompt="Wyszukaj: " 
 
 ## sedi
 
+Wyszukuje katalogi w bieżącej lokalizacji, po wybraniu katalogu zostanie otworzony w standardowy
+edytorze tekstu.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1759,6 +1811,9 @@ SEARCH=$(fd . -t d --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 
 ## sefi
 
+Wyszukuje plików w bieżącej lokalizacji, wybrany plik zostanie otworzony w standardowym edytorze
+tekstu.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1768,7 +1823,7 @@ BAT=$(which bat)
 PREVIEW_SH=$(which preview.sh)
 if [ ! -z $BAT ]; then
     PREVIEW="bat --style=numbers --color=always {}"
- elif [ ! -z $PREVIEW_SH ]; then
+elif [ ! -z $PREVIEW_SH ]; then
     PREVIEW="preview.sh {}"
 else
     echo "Brak programu 'bat' i skryptu 'preview.sh', należy doinstalować jeden z nich"
@@ -1781,6 +1836,8 @@ SEARCH=$(fd . -t f --ignore-file .gitignore | sk --exact --tac --prompt="Wyszuka
 ```
 
 ## taruj
+
+Skrypt tworzy archiwum Tar bieżącego katalogu, następnie usuwa jego zawartość.
 
 ```bash
 #!/usr/bin/env bash
@@ -1795,6 +1852,9 @@ find . -not -name "$PLIK_TAR.tar" -delete
 ```
 
 ## update
+
+Uniwersalny skrypt do aktualizacji systemu Linux, obsługuje ssytemy: Fedora, CentOS, Ubuntu oraz
+Void.
 
 ```bash
 #!/usr/bin/env bash
@@ -1842,6 +1902,9 @@ fi
 
 ## vf
 
+Wyświetla listę plików za pomocą Skim, wybrany plik zostanie uruchomiony w Twoim edytorze tekstu
+określonym w zmiennej `$EDITOR`.
+
 ```bash
 #!/usr/bin/env bash
 
@@ -1851,6 +1914,9 @@ sk | xargs -r -I % $EDITOR %
 ```
 
 ## vs
+
+Wyświetla listę plików za pomocą FZF z podglądem plików, wybrany plik zostanie uruchomiony w Twoim
+edytorze tekstu określonym w zmiennej `$EDITOR`.
 
 ```bash
 #!/usr/bin/env bash
