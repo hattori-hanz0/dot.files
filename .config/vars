@@ -16,6 +16,9 @@ export BROWSER="/usr/bin/firefox"
 # ustawienie edytora NeoVim jako standardowego edytora
 export VIMRUNTIME="/usr/share/nvim/runtime"
 export EDITOR="/usr/bin/nvim"
+# ustawienie edytor Neovim w ~/.local jako standardowego edytora
+# export VIMRUNTIME="$HOME/.local/nvim/share/nvim/runtime"
+# export EDITOR="$HOME/.local/nvim/bin/nvim"
 # program sudo / doas
 export SUDO=/usr/sbin/sudo
 export DOTFILES_DIR="$HOME/git/dot.files"
