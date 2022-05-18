@@ -22,6 +22,12 @@ alias t=tmux
 alias ta="tmux atta"
 alias b=bat
 
+# System plików / pamięć
+alias df="df -h"
+alias dfr="df -h /"
+alias free="free -m"
+alias mount="$HOME/.local/bin/mount.sh"
+
 # Git
 alias g=git
 alias ga="$HOME/.local/bin/ga.sh"
@@ -145,11 +151,6 @@ alias ff="$HOME/local/bin/ff.sh"
 #
 # alias backup-dir="$HOME/bin/backup-dir"
 #
-# System plików / pamięć
-#
-# alias df="df -h"
-# alias dfr="df -h /"
-# alias free="free -m"
 
 # ROFI / dmenu
 #
