@@ -69,6 +69,7 @@ function instalacja_dodatkowego_oprogramowania() {
     git clone https://github.com/budlabs/i3ass $HOME/src/i3ass
     git clone https://github.com/cdown/clipmenu $HOME/src/clipmenu
     git clone https://github.com/cdown/clipnotify $HOME/src/clipnotify
+    git clone https://github.com/DMBuce/i3b $HOME/src/i3b
 }
 
 instalacja_dodatkowego_oprogramowania
