@@ -19,7 +19,7 @@ declare ZESTAWY_ARRAY
 
 PAKIETY_DO_ZAINSTALOWANIA=$(mktemp $KATALOG/pakiety/pakiety_do_zainstalowania.XXX)
 
-ZESTAWY=$(ls $KATALOG/pakiety/*.txt | awk -F/ '{print $NF}' | fzf --prompt="Wybierz zestaw pakietów [TAB - zaznaczanie] > " --reverse -e -m --preview "cat $KATALOG/pakiety/{}")
+ZESTAWY=$(ls $KATALOG/pakiety/*.txt | awk -F/ '{print $NF}' | fzf --prompt="Wybierz zestaw pakietów (TAB - zaznaczanie) > " --reverse -e -m --preview "cat $KATALOG/pakiety/{}")
 ZESTAWY_ARRAY=($ZESTAWY)
 
 for ITEM in "${ZESTAWY_ARRAY[@]}"; do
