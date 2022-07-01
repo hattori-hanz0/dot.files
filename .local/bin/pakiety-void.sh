@@ -2,19 +2,34 @@
 
 # Skrypt sprawdza czy są zainstalowane potrzebne pakiety
 
+# .local/bin
 KATALOG=$(readlink -m $(dirname "$0"))
 
-. ~/.local/bin/colors
+. $KATALOG/colors
 
 shopt -s nocasematch
 
 declare BRAK
 declare ZNALAZLEM
 declare LISTA_PAKIETOW
-mapfile -t WYMAGANE_PAKIETY < <(cat $KATALOG/pakiety-void-i3.txt)
+declare ZESTAWY_ARRAY
 
 # Tworzy tablicę LISTA_PAKIETOW zawierającą wszystkie zainstalowane pakiety w systemie
-msg_info "Tworzę listę zainstalowanych pakietów."
+#msg_info "Tworzę listę zainstalowanych pakietów."
+
+PAKIETY_DO_ZAINSTALOWANIA=$(mktemp $KATALOG/pakiety/pakiety_do_zainstalowania.XXX)
+
+ZESTAWY=$(ls $KATALOG/pakiety/*.txt|awk -F/ '{print $NF}'|fzf --reverse -e -m --preview "cat $KATALOG/pakiety/{}")
+ZESTAWY_ARRAY=($ZESTAWY)
+
+for ITEM in "${ZESTAWY_ARRAY[@]}"; do
+	#echo $KATALOG/pakiety/${ITEM}
+	cat $KATALOG/pakiety/$ITEM >> $PAKIETY_DO_ZAINSTALOWANIA
+	echo >> $PAKIETY_DO_ZAINSTALOWANIA
+done
+
+mapfile -t WYMAGANE_PAKIETY < <(cat $PAKIETY_DO_ZAINSTALOWANIA)
+rm $PAKIETY_DO_ZAINSTALOWANIA
 
 for i in $(xbps-query -l|cut -f 2 -d ' '|sed -E 's/(.+)-[^-]+/\1/')
 do

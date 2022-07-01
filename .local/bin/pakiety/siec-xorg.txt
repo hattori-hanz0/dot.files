@@ -1,0 +1,5 @@
+NetworkManager
+NetworkManager-openvpn
+wireshark
+wireshark-qt
+zenmap

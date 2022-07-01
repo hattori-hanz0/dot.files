@@ -1,0 +1,2 @@
+virtualbox-ose-guest
+virtualbox-ose-guest-dkms
