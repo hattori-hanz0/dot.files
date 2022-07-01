@@ -19,20 +19,23 @@ declare ZESTAWY_ARRAY
 
 PAKIETY_DO_ZAINSTALOWANIA=$(mktemp $KATALOG/pakiety/pakiety_do_zainstalowania.XXX)
 
-ZESTAWY=$(ls $KATALOG/pakiety/*.txt|awk -F/ '{print $NF}'|fzf --reverse -e -m --preview "cat $KATALOG/pakiety/{}")
+ZESTAWY=$(ls $KATALOG/pakiety/*.txt | awk -F/ '{print $NF}' | fzf --prompt="Wybierz zestaw pakietów [TAB - zaznaczanie] > " --reverse -e -m --preview "cat $KATALOG/pakiety/{}")
 ZESTAWY_ARRAY=($ZESTAWY)
 
 for ITEM in "${ZESTAWY_ARRAY[@]}"; do
-	#echo $KATALOG/pakiety/${ITEM}
-	cat $KATALOG/pakiety/$ITEM >> $PAKIETY_DO_ZAINSTALOWANIA
-	echo >> $PAKIETY_DO_ZAINSTALOWANIA
+    #echo $KATALOG/pakiety/${ITEM}
+    cat $KATALOG/pakiety/$ITEM >>$PAKIETY_DO_ZAINSTALOWANIA
+    echo >>$PAKIETY_DO_ZAINSTALOWANIA
 done
+
+sort -o $PAKIETY_DO_ZAINSTALOWANIA.tmp -u $PAKIETY_DO_ZAINSTALOWANIA
+mv $PAKIETY_DO_ZAINSTALOWANIA.tmp $PAKIETY_DO_ZAINSTALOWANIA
+sed -i '/^$/d' $PAKIETY_DO_ZAINSTALOWANIA
 
 mapfile -t WYMAGANE_PAKIETY < <(cat $PAKIETY_DO_ZAINSTALOWANIA)
 rm $PAKIETY_DO_ZAINSTALOWANIA
 
-for i in $(xbps-query -l|cut -f 2 -d ' '|sed -E 's/(.+)-[^-]+/\1/')
-do
+for i in $(xbps-query -l | cut -f 2 -d ' ' | sed -E 's/(.+)-[^-]+/\1/'); do
     LISTA_PAKIETOW+=("$i")
 done
 
