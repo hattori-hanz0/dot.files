@@ -36,7 +36,7 @@ alias c=clear
 alias q=exit
 
 alias n=nvim
-alias nvim-qt-local=$HOME/.local/bin/nvim-qt-local
+alias nvim-qt-local=$HOME/.local/bin/nvim-qt-local.sh
 alias man="$HOME/.local/bin/man-nvim.sh"
 
 alias t=tmux
@@ -49,6 +49,10 @@ alias dfr="df -h /"
 alias free="free -m"
 alias mount="$HOME/.local/bin/mount.sh"
 
+# Kopie zapasowe
+alias backup-dir="$HOME/.local/bin/backup-dir.sh"
+alias taruj="$HOME/.local/bin/taruj.sh"
+
 # Pliki i katalogi
 alias ...="cd ../.."
 alias ..="cd .."
@@ -56,14 +60,14 @@ alias .d="cd $HOME/git/dot.files"
 alias .git="cd $HOME/git"
 alias .src="cd $HOME/src"
 alias .w="cd $HOME/workspace"
-alias cdb="source ~/.local/bin/cdb"
-alias cdba="source ~/.local/bin/cdba"
-alias cda="source ~/.local/bin/cdba"
-alias cdbd="source ~/.local/bin/cdbd"
-alias cdd="source ~/.local/bin/cdbd"
+alias cdb="source ~/.local/bin/cdb.sh"
+alias cdba="source ~/.local/bin/cdba.sh"
+alias cda="source ~/.local/bin/cdba.sh"
+alias cdbd="source ~/.local/bin/cdbd.sh"
+alias cdd="source ~/.local/bin/cdbd.sh"
 alias cdbe="$EDITOR ~/.config/bmdirs"
 alias cde="$EDITOR ~/.config/bmdirs"
-alias cdf="source $HOME/.local/bin/cdf"
+alias cdf="source $HOME/.local/bin/cdf.sh"
 alias path="echo $PATH|tr \":\" \"\n\""
 alias cpa="pwd|tr -d '\n'|xclip -sel clip"
 
@@ -75,23 +79,22 @@ function cd_func() {
     [ -e $PWD/run_dir.sh ] && source $PWD/run_dir.sh
 }
 
-alias dchmod="$HOME/.local/bin/dchmod"
-alias fchmod="$HOME/.local/bin/fchmod"
+alias dchmod="$HOME/.local/bin/dchmod.sh"
+alias fchmod="$HOME/.local/bin/fchmod.sh"
 
-alias ll="$HOME/.local/bin/ll"
+alias ll="$HOME/.local/bin/ll.sh"
 alias l="ll"
 alias lm="$HOME/.local/bin/lm.sh"  # exa pliki posortowane po dacie modyfikacji
 alias f="ls -A|wc -l"
 
-alias md="mkcdir"
-alias mkcdir="source $HOME/.local/bin/mkcdir $1"
+alias md="source $HOME/.local/bin/md.sh $1"
 alias mkdir="mkdir -p"
 
 alias lsx="ls -F | grep '*$'"  # pokazuje pliki wykonywalne w lokalizacji
 
-alias exa-tree="$HOME/.local/bin/exa-tree"
+alias exa-tree="$HOME/.local/bin/exa-tree.sh"
 
-alias cleartemp="$HOME/.local/bin/cleartemp"
+alias cleartemp="$HOME/.local/bin/cleartemp.sh"
 
 # Git
 alias g=git
@@ -114,20 +117,19 @@ alias EncryptSSL="$HOME/.local/bin/EncryptSSL"
 alias p=" gopass"
 alias pass=" gopass"
 alias gopass=" gopass"
-alias otp-add="$HOME/bin/otp-add"
-alias otp="$HOME/bin/otp"
+alias otp-add="$HOME/bin/otp-add.sh"
+alias otp="$HOME/bin/otp.sh"
 
 # Wyszukiwanie i przeszukiwanie
+alias rgvi="$HOME/.local/bin/rgvi.sh"
+alias se="$HOME/.local/bin/se.sh"
+alias sedi="$HOME/.local/bin/sedi.sh"
+alias sefi="$HOME/.local/bin/sefi.sh"
+alias vf="$HOME/.local/bin/vf.sh"
+alias vs="$HOME/.local/bin/vs.sh"
 
-alias rgvi="$HOME/.local/bin/rgvi"
-alias se="$HOME/.local/bin/se"
-alias sedi="$HOME/.local/bin/sedi"
-alias sefi="$HOME/.local/bin/sefi"
-alias vf="$HOME/.local/bin/vf"
-alias vs="$HOME/.local/bin/vs"
-
-alias last-edit="$HOME/.local/bin/last-edit"
-alias last-edit-local="$HOME/.local/bin/last-edit-local"
+alias last-edit="$HOME/.local/bin/last-edit.sh"
+alias last-edit-local="$HOME/.local/bin/last-edit-local.sh"
 
 alias fdh="fd --hidden"
 alias rgh="rg --hidden"
@@ -135,7 +137,6 @@ alias rgh="rg --hidden"
 alias ff="$HOME/local/bin/ff.sh"
 
 # systemctl, zarządzanie energią
-
 # alias suspend="sudo systemctl suspend"
 # alias sysdis="sudo systemctl disable"
 # alias sysena="sudo systemctl enable"
@@ -150,9 +151,6 @@ alias ff="$HOME/local/bin/ff.sh"
 # alias ds="$HOME/bin/ds"
 # alias update="$HOME/bin/update"
 #
-# Kopie zapasowe
-#
-# alias backup-dir="$HOME/bin/backup-dir"
 #
 
 # ROFI / dmenu
@@ -161,7 +159,6 @@ alias ff="$HOME/local/bin/ff.sh"
 # alias menu="$HOME/bin/menu"
 #
 # Skróty do programów
-#
 # alias c="clear"
 # alias ff="firefox"
 # alias h="history"
@@ -177,13 +174,11 @@ alias ff="$HOME/local/bin/ff.sh"
 # alias man="$HOME/bin/man-nvim.sh"
 #
 # Inne
-#
 # alias detect-os="$HOME/bin/detect-os"
 # alias fullhd="$HOME/bin/fullhd"
 #
 #
 # Szyfrowanie / hasła
-#
 # alias passf="$HOME/bin/passf"
 # alias passr="$HOME/bin/passr"
 #
@@ -208,7 +203,6 @@ alias ff="$HOME/local/bin/ff.sh"
 # alias gpg-list-secret-keys="$HOME/bin/gpg-list-secret-keys"
 #
 # Notatki
-#
 # alias wiki="$HOME/bin/wiki"
 #
 # alias diary="$EDITOR -c :VimwikiMakeDiaryNote"
