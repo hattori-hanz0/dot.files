@@ -6,11 +6,32 @@ source ~/.config/vars
 
 alias sudo=$SUDO
 
+# Pliki konfiguracyjne
+alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
+alias .ala="$EDITOR $HOME/.config/alacritty/alacritty.yml"
+alias .b="$EDITOR $HOME/.bashrc"
+alias .co="$EDITOR ~/.config/conky/conky.conf"
+alias .df="$HOME/.local/bin/dotfiles.sh"
+alias .g="$EDITOR $HOME/.gitconfig"
+alias .i3="$EDITOR $HOME/.config/i3/config"
+alias .kh="$EDITOR $HOME/.ssh/known_hosts"
+alias .n="nvim $HOME/.config/nvim/init.lua"
+alias .nv="nvim -c 'e \$MYVIMRC'"
+alias .s="$EDITOR $HOME/.ssh/config"
+alias .sx="$EDITOR $HOME/.config/i3/sxhkdrc && pkill -USR1 -x sxhkd"
+alias .t="$EDITOR $HOME/.tmux.conf"
+alias .v="$HOME/.local/bin/vimrc.sh"
+alias .va="$HOME/.local/bin/vimrc_all.sh"
+alias .vars="$EDITOR $HOME/.config/vars && source $HOME/.config/vars"
+alias .xr="$EDITOR ~/.Xresources && xrdb ~/.Xresources"
+alias .z="$EDITOR $HOME/.zshrc"
+
 # procesy
 alias pg="ps ax|grep"
 alias kp="$HOME/.local/bin/kp.sh"
 alias k=kp
 
+# Inne
 alias c=clear
 alias q=exit
 
@@ -27,35 +48,6 @@ alias df="df -h"
 alias dfr="df -h /"
 alias free="free -m"
 alias mount="$HOME/.local/bin/mount.sh"
-
-# Git
-alias g=git
-alias ga="$HOME/.local/bin/ga.sh"
-alias gd="$HOME/.local/bin/gd.sh"
-alias gp="$HOME/.local/bin/gp.sh"
-alias gps="$HOME/.local/bin/gps.sh"
-alias gs="$HOME/.local/bin/gs.sh"
-alias gl="$HOME/.local/bin/gl.sh"
-alias pu="$HOME/.local/bin/pu.sh"
-alias push="$HOME/.local/bin/push.sh"
-
-# Pliki konfiguracyjne
-alias .a="$EDITOR $HOME/.config/aliases && source $HOME/.config/aliases"
-alias .ala="$EDITOR $HOME/.config/alacritty/alacritty.yml"
-alias .b="$EDITOR $HOME/.bashrc"
-alias .co="$EDITOR ~/.config/conky/conky.conf"
-alias .df="$HOME/.local/bin/dotfiles.sh"
-alias .g="$EDITOR $HOME/.gitconfig"
-alias .i3="$EDITOR $HOME/.config/i3/config"
-alias .kh="$EDITOR $HOME/.ssh/known_hosts"
-alias .n="nvim $HOME/.config/nvim/init.lua"
-alias .nv="nvim -c 'e \$MYVIMRC'"
-alias .s="$EDITOR $HOME/.ssh/config"
-alias .sx="$EDITOR $HOME/.config/i3/sxhkdrc && pkill -USR1 -x sxhkd"
-alias .t="$EDITOR $HOME/.tmux.conf"
-alias .vars="$EDITOR $HOME/.config/vars && source $HOME/.config/vars"
-alias .xr="$EDITOR ~/.Xresources && xrdb ~/.Xresources"
-alias .z="$EDITOR $HOME/.zshrc"
 
 # Pliki i katalogi
 alias ...="cd ../.."
@@ -100,6 +92,17 @@ alias lsx="ls -F | grep '*$'"  # pokazuje pliki wykonywalne w lokalizacji
 alias exa-tree="$HOME/.local/bin/exa-tree"
 
 alias cleartemp="$HOME/.local/bin/cleartemp"
+
+# Git
+alias g=git
+alias ga="$HOME/.local/bin/ga.sh"
+alias gd="$HOME/.local/bin/gd.sh"
+alias gp="$HOME/.local/bin/gp.sh"
+alias gps="$HOME/.local/bin/gps.sh"
+alias gs="$HOME/.local/bin/gs.sh"
+alias gl="$HOME/.local/bin/gl.sh"
+alias pu="$HOME/.local/bin/pu.sh"
+alias push="$HOME/.local/bin/push.sh"
 
 # Szyfrowanie
 alias dec="$HOME/.local/bin/DecryptGPG"
