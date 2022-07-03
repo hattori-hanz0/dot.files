@@ -32,7 +32,7 @@ alias kp="$HOME/.local/bin/kp.sh"
 alias k=kp
 
 # Inne
-alias c=clear
+alias cs=clear
 alias q=exit
 
 alias n=nvim
@@ -41,6 +41,8 @@ alias man="$HOME/.local/bin/man-nvim.sh"
 
 alias t=tmux
 alias ta="tmux atta"
+alias c="bat --plain"
+alias cat=c
 alias b=bat
 
 # System plików / pamięć
