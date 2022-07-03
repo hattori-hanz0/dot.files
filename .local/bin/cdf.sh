@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 
-cd $HOME
-KATALOG="$(fd -L -t d -d 3 | fzf --preview="fd --full-path {}")"
+GLEBOKOSC=2
 
+if [ ! -z $1 ]; then
+    cd "$1"
+fi
+
+KATALOG="$(fd -L -t d -d $GLEBOKOSC | fzf --preview="fd --full-path {}")"
+
+# zabezpiecza przed wykonaniem komendy z pustyą zmienną $KATALOG czyli "cd "
 if [ ! -z $KATALOG ]; then
     cd "$KATALOG"
-else
-    cd - > /dev/null
 fi
