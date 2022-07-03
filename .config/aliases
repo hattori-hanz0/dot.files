@@ -31,6 +31,10 @@ alias pg="ps ax|grep"
 alias kp="$HOME/.local/bin/kp.sh"
 alias k=kp
 
+alias sv.enable="$HOME/.local/sv-enable.sh"
+alias sv.disable="$HOME/.local/sv-disable.sh"
+alias sv.restart="$HOME/.local/sv-restart.sh"
+
 # Inne
 alias cs=clear
 alias q=exit
