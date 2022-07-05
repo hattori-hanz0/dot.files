@@ -72,8 +72,6 @@ function instalacja_dodatkowego_oprogramowania() {
     git clone https://github.com/DMBuce/i3b $HOME/src/i3b
 }
 
-instalacja_dodatkowego_oprogramowania
-
 function instalacja_clipnotify {
     sudo xbps-install xorgproto libX11-devel libXfixes-devel
     cd $HOME/src/clipnotify
@@ -82,8 +80,6 @@ function instalacja_clipnotify {
     cp clipnotify ~/.local/bin/
     # sudo xbsp-remove xorgproto libX11-devel libXfixes-devel
 }
-
-instalacja_clipnotify
 
 function instalacja_clipmenu() {
     cd $HOME/src/clipmenu
@@ -94,15 +90,30 @@ function instalacja_clipmenu() {
     cp clipmenud ~/.local/bin
 }
 
-instalacja_clipmenu
-
 function instalacja_i3ass() {
     cd ~/src/i3ass
     make
     PREFIX=~/.local make install
 }
 
-instalacja_i3ass
+read -p "Czy zainstalować dodatkowe oprogramowanie: i3ass, clipmenu, clipnotify, i3b? [T/n]: "
+case $REPLY in
+    t | T)
+        instalacja_dodatkowego_oprogramowania
+        instalacja_clipnotify
+        instalacja_clipmenu
+        instalacja_i3ass
+        ;;
+    n | N)
+        continue
+        ;;
+    *)
+        instalacja_dodatkowego_oprogramowania
+        instalacja_clipnotify
+        instalacja_clipmenu
+        instalacja_i3ass
+        ;;
+esac
 
 function edycja_vars() {
     nvim $HOME/.config/vars
