@@ -21,6 +21,14 @@ if [ $DISPLAY ]; then
     xset r rate 280 40
 fi
 
+# inne opcje dla setxkbmap
+# caps:none - wyłączenie
+# caps:escape - dodatkowy escape
+# caps:super - dodatkowy windows key
+# setxkbmap -option - zresetowanie ustawień
+# setxkbmap -query - sprawdzenie ustawień
+
+
 # włączenie vi mode
 set -o vi
 
@@ -32,7 +40,31 @@ HISTSIZE=100000
 HISTTIMEFORMAT='%F %T'
 PROMPT_COMMAND='history -a'
 
-eval $(ssh-agent)
+# W przypadku kiedy zmienna $KEYCHAIN nie istnieje lub jest pusta uruchamia agenta ssh-agent
+if [ -z $KEYCHAIN ]; then
+    echo "Uruchamiam ssh-agent"
+    export SSH_AUTH_ENV=$HOME/.ssh/ssh-agent-$HOSTNAME.env
+	export SSH_AUTH_SOCK=~/.ssh/ssh-agent-$HOSTNAME.sock
+
+	ssh-add -l 2>/dev/null >/dev/null
+	if [ $? -ge 2 ]; then
+		ssh-agent -a "$SSH_AUTH_SOCK" | tee $SSH_AUTH_ENV >/dev/null
+	fi
+    # ssh-add $HOME/.ssh/id_rsa
+else
+        /usr/bin/keychain -q $HOME/.ssh/id_rsa
+        source $HOME/.keychain/$HOSTNAME-sh
+fi
+
+# zastąpienie ssh-agent przez gpg-agent
+# unset SSH_AGENT_PID
+# pgrep gpg-agent > /dev/null
+# if [ $? == 1 ]; then
+#    eval $(gpg-agent --daemon --enable-ssh-support)
+#    # gpg-connect-agent /bye
+# fi
+
+
 eval $(gpg-agent --daemon)
 GPG_TTY=$(tty)
 export GPG_TTY
