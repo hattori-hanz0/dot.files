@@ -140,22 +140,35 @@ alias last-edit-local="$HOME/.local/bin/last-edit-local.sh"
 alias fdh="fd --hidden"
 alias rgh="rg --hidden"
 
-alias ff="$HOME/local/bin/ff.sh"
+alias ff="$HOME/.local/bin/ff.sh"
+
+# Void Linux
+alias xbps-install="$SUDO xbps-install"
+alias vpm="sudo vpm"
+alias sv="sudo sv"
+
+# OpenBSD
+alias pkg_add="doas pkg_add"
+alias pkg-add="doas pkg_add"
+alias pkd_delete="doas pkd_delete"
+alias pkd-delete="doas pkd_delete"
+alias pkg-info="pkg_info"
+alias pkg-docs=$HOME/.local/bin/pkg-docs.sh
 
 # systemctl, zarządzanie energią
-# alias suspend="sudo systemctl suspend"
-# alias sysdis="sudo systemctl disable"
-# alias sysena="sudo systemctl enable"
-# alias sysstart="sudo systemctl start"
-# alias sysstop="sudo systemctl stop"
-# alias reboot="sudo reboot"
-# alias batt="$HOME/.local/bin/batt"
+ alias suspend="sudo systemctl suspend"
+ alias sysdis="sudo systemctl disable"
+ alias sysena="sudo systemctl enable"
+ alias sysstart="sudo systemctl start"
+ alias sysstop="sudo systemctl stop"
+ alias reboot="sudo reboot"
+ alias batt="$HOME/.local/bin/batt"
 #
 # Pakiety Fedora
-# alias di="sudo dnf install"
-# alias dr="sudo dnf remove"
-# alias ds="$HOME/bin/ds"
-# alias update="$HOME/bin/update"
+ alias di="sudo dnf install"
+ alias dr="sudo dnf remove"
+ # alias ds="$HOME/.local/bin/ds"
+ # alias update="$HOME/.local/bin/update"
 #
 #
 
